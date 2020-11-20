@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
+        "projectName": "Scanf.Test",
+        "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
+        "packagesPath": "C:\\Users\\anu.viswan\\.nuget\\packages\\",
+        "outputPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anu.viswan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {
+              "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
+                "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "target": "Package",
+              "version": "[2.10.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
+        "projectName": "Scanf",
+        "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
+        "packagesPath": "C:\\Users\\anu.viswan\\.nuget\\packages\\",
+        "outputPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anu.viswan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard1.3"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard1.3": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard1.3": {
+          "dependencies": {
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.10.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.6.1, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
