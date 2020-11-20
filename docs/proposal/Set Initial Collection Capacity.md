@@ -55,7 +55,7 @@ public int Capacity
 }
 ```
 
-Every time the size of array hits the capacity, the capacity is doubled and the Array is recreated with the new Capacity. All the elements of the previous copy of array is then copied over. This is an expensive operation, if occured too many times. Also, since the capacity is being doubled, there is every possiblity that the array could end up with a little than half its assigned memory unallocated.
+Every time the size of array hits the capacity, the capacity is doubled and the Array is recreated with the new Capacity. All the elements of the previous copy of array is then copied over. This is an expensive operation, if occured too many times. Also, since the capacity is being doubled, there is every possiblity that the array could end up with a little less than half its assigned memory unallocated.
 
 The better way to make use of collections would be to intialize it with a likely size during construction.
 
