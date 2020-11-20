@@ -1,4 +1,4 @@
-## Set Initial Colection capacity
+## Set Initial Collection capacity
 
 :bookmark:_Collection, Memory Management_
 
