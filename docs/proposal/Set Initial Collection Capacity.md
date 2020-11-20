@@ -1,5 +1,8 @@
 ## Set Initial Colection capacity
 
+:bookmark:_Collection, Memory Management_
+**Category**: Code Smell
+
 C# Collections like `List<T>` is implemented with an `array` in the background. The size of `array` would grow (array is resized) as items are added in the collection. Following code shows typical implimentation of the `List.Add()` method.
 
 ```csharp
@@ -54,10 +57,6 @@ Every time the size of array hits the capacity, the capacity is doubled and the 
 The better way to make use of collections would be to intialize it with a likely size during construction.
 
 **Description**: Initialize Collection with a likely capacity
-
-**Category**: Code Smell
-
-**Tags** : Collection, Memory Management
 
 **Non-Complaint Code**
 
