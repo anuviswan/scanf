@@ -1,6 +1,9 @@
-## Title
+## Set Initial Colection capacity
 
 _Short description of the issue_
+
+**Code** : 1000
+**Descriptio**: Description
 
 **Category**: Code Smell
 
