@@ -53,8 +53,7 @@ Every time the size of array hits the capacity, the capacity is doubled and the 
 
 The better way to make use of collections would be to intialize it with a likely size during construction.
 
-**Code** : 1000
-**Descriptio**: Initialize Collection with a likely capacity
+**Description**: Initialize Collection with a likely capacity
 
 **Category**: Code Smell
 
