@@ -4,6 +4,8 @@
 
 **Category**: Code Smell
 
+**Code**: SF1001
+
 C# Collections like `List<T>` is implemented with an `array` in the background. The size of `array` would grow (array is resized) as items are added in the collection. Following code shows typical implimentation of the `List.Add()` method.
 
 ```csharp
@@ -88,3 +90,22 @@ foreach(var person in persons)
     });
 }
 ```
+
+**Update** (20/11/2020)
+
+In the first version, the code fix would be as following.
+
+```csharp
+var persons = GetPersonList();
+var studentList = new List<Student>(count);
+foreach(var person in persons)
+{
+    studentList.Add(new Student
+    {
+        FirstName = person.FirstName,
+        LastName = person.LastName
+    });
+}
+```
+
+Where count is a undeclared variable. This would force the user to replace it with an appropriate value.
