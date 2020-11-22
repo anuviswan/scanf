@@ -50,7 +50,8 @@ namespace Scanf.Test
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
         public async Task CodeThatRequireFix(string source,string fixedSource)
         {
-            var expected = VerifyCS.Diagnostic("Scanf").WithLocation(0).WithArguments("TypeName");
+            var r = VerifyCS.Diagnostic("SF1002");
+            var expected = r.WithLocation(19,13).WithArguments("Foo1");
             await VerifyCS.VerifyCodeFixAsync(source, expected, fixedSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
@@ -73,7 +74,7 @@ namespace Scanf.Test
                 Console.WriteLine(i);
             }
 
-            public void Foo()
+            public void Foo1()
             {
             }
         }
