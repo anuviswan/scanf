@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="Scanf.97c95306-11b0-4918-9f26-339e5fa3be19" Version="1.0" Language="en-US" Publisher="anu.viswan"/>
+    <Identity Id="Scanf.7c1349bd-bc76-4d21-a545-b159ee6de216" Version="1.0" Language="en-US" Publisher="anuvi"/>
     <DisplayName>Scanf</DisplayName>
     <Description xml:space="preserve">This is a sample diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
   </Metadata>
@@ -14,6 +14,8 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="Scanf" Path="|Scanf|"/>
     <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="Scanf" Path="|Scanf|"/>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="Scanf.CodeFixes" Path="|Scanf.CodeFixes|"/>
+    <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="Scanf.CodeFixes" Path="|Scanf.CodeFixes|"/>
   </Assets>
   <Prerequisites>
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />

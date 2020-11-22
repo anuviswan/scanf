@@ -1,29 +1,26 @@
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeFixes;
-using Microsoft.CodeAnalysis.Diagnostics;
+﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using TestHelper;
-using Scanf;
+using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
+    Scanf.CodeSmell.EmptyMethodAnalyzer,
+    Scanf.EmptyMethodCodeFixProvider>;
 
 namespace Scanf.Test
 {
     [TestClass]
-    public class UnitTest : CodeFixVerifier
+    public class ScanfUnitTest
     {
-
         //No diagnostics expected to show up
         [TestMethod]
-        public void TestMethod1()
+        public async Task TestMethod1()
         {
             var test = @"";
 
-            VerifyCSharpDiagnostic(test);
+            await VerifyCS.VerifyAnalyzerAsync(test);
         }
 
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
-        public void TestMethod2()
+        public async Task TestMethod2()
         {
             var test = @"
     using System;
@@ -35,22 +32,10 @@ namespace Scanf.Test
 
     namespace ConsoleApplication1
     {
-        class TypeName
+        class {|#0:TypeName|}
         {   
         }
     }";
-            var expected = new DiagnosticResult
-            {
-                Id = "Scanf",
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
-                Severity = DiagnosticSeverity.Warning,
-                Locations =
-                    new[] {
-                            new DiagnosticResultLocation("Test0.cs", 11, 15)
-                        }
-            };
-
-            VerifyCSharpDiagnostic(test, expected);
 
             var fixtest = @"
     using System;
@@ -66,17 +51,9 @@ namespace Scanf.Test
         {   
         }
     }";
-            VerifyCSharpFix(test, fixtest);
-        }
 
-        protected override CodeFixProvider GetCSharpCodeFixProvider()
-        {
-            return new ScanfCodeFixProvider();
-        }
-
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new ScanfAnalyzer();
+            var expected = VerifyCS.Diagnostic("Scanf").WithLocation(0).WithArguments("TypeName");
+            await VerifyCS.VerifyCodeFixAsync(test, expected, fixtest);
         }
     }
 }

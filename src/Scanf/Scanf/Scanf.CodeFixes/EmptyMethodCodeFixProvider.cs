@@ -1,28 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Rename;
-using Microsoft.CodeAnalysis.Text;
+using Scanf.CodeSmell;
 
 namespace Scanf
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ScanfCodeFixProvider)), Shared]
-    public class ScanfCodeFixProvider : CodeFixProvider
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(EmptyMethodCodeFixProvider)), Shared]
+    public class EmptyMethodCodeFixProvider : CodeFixProvider
     {
-        private const string title = "Make uppercase";
-
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
-            get { return ImmutableArray.Create(ScanfAnalyzer.DiagnosticId); }
+            get { return ImmutableArray.Create(EmptyMethodAnalyzer.DiagnosticId); }
         }
 
         public sealed override FixAllProvider GetFixAllProvider()
@@ -45,9 +41,9 @@ namespace Scanf
             // Register a code action that will invoke the fix.
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title: title,
+                    title: CodeFixResources.CodeFixTitle,
                     createChangedSolution: c => MakeUppercaseAsync(context.Document, declaration, c),
-                    equivalenceKey: title),
+                    equivalenceKey: nameof(CodeFixResources.CodeFixTitle)),
                 diagnostic);
         }
 

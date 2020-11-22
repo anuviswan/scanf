@@ -1,35 +1,105 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {}
+    "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {}
   },
   "projects": {
-    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {
+    "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\Scanf.CodeFixes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
-        "projectName": "Scanf.Test",
-        "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
-        "packagesPath": "C:\\Users\\anu.viswan\\.nuget\\packages\\",
-        "outputPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\obj\\",
+        "projectUniqueName": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\Scanf.CodeFixes.csproj",
+        "projectName": "Scanf.CodeFixes",
+        "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\Scanf.CodeFixes.csproj",
+        "packagesPath": "C:\\Users\\anuvi\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anu.viswan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\NuGet.Config",
+          "C:\\Users\\anuvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
+                "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
+        "projectName": "Scanf.Test",
+        "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\Scanf.Test.csproj",
+        "packagesPath": "C:\\Users\\anuvi\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\NuGet.Config",
+          "C:\\Users\\anuvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {}
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.0": {
+            "targetAlias": "netcoreapp2.0",
             "projectReferences": {
-              "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
-                "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj"
+              "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\Scanf.CodeFixes.csproj": {
+                "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf.CodeFixes\\Scanf.CodeFixes.csproj"
+              },
+              "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
+                "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj"
               }
             }
           }
@@ -42,6 +112,7 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
+          "targetAlias": "netcoreapp2.0",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -51,13 +122,33 @@
               "target": "Package",
               "version": "[1.3.2, )"
             },
-            "Microsoft.CodeAnalysis.Analyzers": {
+            "Microsoft.CodeAnalysis": {
               "target": "Package",
-              "version": "[2.6.2, )"
+              "version": "[3.3.1, )"
             },
-            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+            "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.MSTest": {
               "target": "Package",
-              "version": "[2.10.0, )"
+              "version": "[1.0.1-beta1.*, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.MSTest": {
+              "target": "Package",
+              "version": "[1.0.1-beta1.*, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing.MSTest": {
+              "target": "Package",
+              "version": "[1.0.1-beta1.*, )"
+            },
+            "Microsoft.CodeAnalysis.VisualBasic.Analyzer.Testing.MSTest": {
+              "target": "Package",
+              "version": "[1.0.1-beta1.*, )"
+            },
+            "Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing.MSTest": {
+              "target": "Package",
+              "version": "[1.0.1-beta1.*, )"
+            },
+            "Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing.MSTest": {
+              "target": "Package",
+              "version": "[1.0.1-beta1.*, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -80,33 +171,34 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
+    "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
-        "projectName": "Scanf",
-        "projectPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
-        "packagesPath": "C:\\Users\\anu.viswan\\.nuget\\packages\\",
-        "outputPath": "C:\\Anu\\Sample Codes\\scanf\\src\\Scanf\\Scanf\\Scanf\\obj\\",
+        "projectUniqueName": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
+        "projectName": "*C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj*",
+        "projectPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\Scanf.csproj",
+        "packagesPath": "C:\\Users\\anuvi\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\Scanf\\Scanf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anu.viswan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Data\\Development\\Source\\Github\\scanf\\src\\Scanf\\NuGet.Config",
+          "C:\\Users\\anuvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard1.3"
+          "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {}
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard1.3": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -117,26 +209,35 @@
         }
       },
       "frameworks": {
-        "netstandard1.3": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.CodeAnalysis.Analyzers": {
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.6.2, )"
+              "version": "[2.9.8, )"
             },
-            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
-              "suppressParent": "All",
+            "Microsoft.CodeAnalysis.CSharp": {
               "target": "Package",
-              "version": "[2.10.0, )"
+              "version": "[3.3.1, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.6.1, )",
+              "version": "[2.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
