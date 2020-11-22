@@ -1,14 +1,23 @@
-## Title
+## Title of Proposal
 
-_Short description of the issue_
+:bookmark:_Tags1, Tags2_
 
-**Code** : 1000
-**Descriptio**: Description
+**Category**: [Code Smell, Naming Convention]
 
-**Category**: Code Smell
+**Code**: SFXXXX
 
-**Tags** :
+**Description**: Short Description to be shown in IDE
+
+Detailed explanation of the problem
 
 **Non-Complaint Code**
 
+```csharp
+// Code Sample
+```
+
 **Fix**
+
+```csharp
+// Code Sample
+```
