@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
     Scanf.CodeSmell.EmptyMethodAnalyzer,
@@ -11,49 +12,94 @@ namespace Scanf.Test
     {
         //No diagnostics expected to show up
         [TestMethod]
-        public async Task TestMethod1()
+        [DynamicData(nameof(GetValidData), DynamicDataSourceType.Method)]
+        public async Task CodeThatDoesNotRequireFix(string source)
         {
-            var test = @"";
+            await VerifyCS.VerifyAnalyzerAsync(source);
+        }
 
-            await VerifyCS.VerifyAnalyzerAsync(test);
+        private static IEnumerable<object[]> GetValidData()
+        {
+            var codeWithNoEmptyMethods = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Foo
+        {   
+            public void Bar()
+            {
+                var i = 4;
+                Console.WriteLine(i);
+            }
+
+        }
+    }";
+
+            yield return new object[] { @"" };
+            yield return new object[] { codeWithNoEmptyMethods };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
-        public async Task TestMethod2()
+        [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
+        public async Task CodeThatRequireFix(string source,string fixedSource)
         {
-            var test = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class {|#0:TypeName|}
-        {   
-        }
-    }";
-
-            var fixtest = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class TYPENAME
-        {   
-        }
-    }";
-
             var expected = VerifyCS.Diagnostic("Scanf").WithLocation(0).WithArguments("TypeName");
-            await VerifyCS.VerifyCodeFixAsync(test, expected, fixtest);
+            await VerifyCS.VerifyCodeFixAsync(source, expected, fixedSource);
+        }
+        private static IEnumerable<object[]> GetInvalidData()
+        {
+            var codeThatHasEmptyMethod = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Foo
+        {   
+            public void Bar()
+            {
+                var i = 4;
+                Console.WriteLine(i);
+            }
+
+            public void Foo()
+            {
+            }
+        }
+    }";
+
+            var codeWithEmptyMethodRemoved = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Foo
+        {   
+            public void Bar()
+            {
+                var i = 4;
+                Console.WriteLine(i);
+            }
+        }
+    }";
+
+            yield return new object[] { codeThatHasEmptyMethod, codeWithEmptyMethodRemoved };
         }
     }
 }
