@@ -6,6 +6,8 @@
 
 **Code**: SF1001
 
+**Description**: Initialize Collection with a likely capacity
+
 C# Collections like `List<T>` is implemented with an `array` in the background. The size of `array` would grow (array is resized) as items are added in the collection. Following code shows typical implimentation of the `List.Add()` method.
 
 ```csharp
@@ -58,8 +60,6 @@ public int Capacity
 Every time the size of array hits the capacity, the capacity is doubled and the Array is recreated with the new Capacity. All the elements of the previous copy of array is then copied over. This is an expensive operation, if occured too many times. Also, since the capacity is being doubled, there is every possiblity that the array could end up with a little less than half its assigned memory unallocated.
 
 The better way to make use of collections would be to intialize it with a likely size during construction.
-
-**Description**: Initialize Collection with a likely capacity
 
 **Non-Complaint Code**
 
