@@ -28,61 +28,20 @@ namespace Scanf.Test
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string source,string fixedSource)
+        public async Task CodeThatRequireFix(string inputSrc,string expectedSrc,int line,int col)
         {
-            var r = VerifyCS.Diagnostic("SF1002");
-            var expected = r.WithLocation(19,13).WithArguments("Foo1");
-            await VerifyCS.VerifyCodeFixAsync(source, expected, fixedSource);
+            var rule = VerifyCS.Diagnostic("SF1002");
+            var expected = rule.WithLocation(line,col).WithArguments("Bar");
+            await VerifyCS.VerifyCodeFixAsync(File.ReadAllText(inputSrc), expected, File.ReadAllText(expectedSrc));
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
-            var codeThatHasEmptyMethod = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class Foo
-        {   
-            public void Bar()
-            {
-                var i = 4;
-                Console.WriteLine(i);
-            }
-
-            public void Foo1()
-            {
-            }
-
-        }
-    }";
-
-            var codeWithEmptyMethodRemoved = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class Foo
-        {   
-            public void Bar()
-            {
-                var i = 4;
-                Console.WriteLine(i);
-            }
-
-        }
-    }";
-
-            yield return new object[] { codeThatHasEmptyMethod, codeWithEmptyMethodRemoved };
+            yield return new object[] 
+            { 
+                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs", 
+                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs",
+                13,9
+            };
         }
     }
 }

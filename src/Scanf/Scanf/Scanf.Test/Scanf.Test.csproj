@@ -9,11 +9,15 @@
 
   <ItemGroup>
     <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs" />
+    <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs" />
     <Compile Remove="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs">
