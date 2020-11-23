@@ -77,6 +77,7 @@ namespace Scanf.Test
             public void Foo1()
             {
             }
+
         }
     }";
 
@@ -97,6 +98,7 @@ namespace Scanf.Test
                 var i = 4;
                 Console.WriteLine(i);
             }
+
         }
     }";
 

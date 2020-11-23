@@ -36,9 +36,9 @@ namespace Scanf.CodeSmell
         private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
-            var methodStatements = methodDeclaration.Body.Statements;
+            var methodStatements = methodDeclaration.Body?.Statements;
 
-            if (!methodStatements.Any())
+            if (!(methodStatements?.Any()==true))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }

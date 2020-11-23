@@ -41,9 +41,9 @@ namespace Scanf
             // Register a code action that will invoke the fix.
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title: CodeFixResources.CodeFixTitle,
+                    title: CodeFixResources.EmptyMethodCodeFixTitle,
                     createChangedDocument: c => MakeUppercaseAsync(context.Document, methodDeclaration, c),
-                    equivalenceKey: nameof(CodeFixResources.CodeFixTitle)),
+                    equivalenceKey: nameof(CodeFixResources.EmptyMethodCodeFixTitle)),
                 diagnostic);
         }
 
@@ -52,7 +52,8 @@ namespace Scanf
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
             var newRoot = oldRoot.RemoveNode(methodDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);
             return document.WithSyntaxRoot(newRoot);
-                // Compute new uppercase name.
+
+            // Compute new uppercase name.
             //var identifierToken = methodDeclaration.Identifier;
             //var newName = identifierToken.Text.ToUpperInvariant();
 
