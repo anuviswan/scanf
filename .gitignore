@@ -7,6 +7,7 @@
 [Bb]in
 [Dd]ebug
 [Bb]uild/
+.vs/
 *.user
 *.suo
 *.exe
@@ -34,6 +35,8 @@ ipch/
 *.vssscc
 *.bak.*
 *.bak
+*.testlog
+*.v2
 
 #Tools
 _ReSharper.*
