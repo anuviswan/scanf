@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -6,6 +6,20 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs" />
+    <Compile Remove="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
@@ -13,36 +14,15 @@ namespace Scanf.Test
         //No diagnostics expected to show up
         [TestMethod]
         [DynamicData(nameof(GetValidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatDoesNotRequireFix(string source)
+        public async Task CodeWithoutDiagnostics(string input)
         {
+            var source = File.ReadAllText(input);
             await VerifyCS.VerifyAnalyzerAsync(source);
         }
 
         private static IEnumerable<object[]> GetValidData()
         {
-            var codeWithNoEmptyMethods = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class Foo
-        {   
-            public void Bar()
-            {
-                var i = 4;
-                Console.WriteLine(i);
-            }
-
-        }
-    }";
-
-            yield return new object[] { @"" };
-            yield return new object[] { codeWithNoEmptyMethods };
+            yield return new object[] { @"SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
