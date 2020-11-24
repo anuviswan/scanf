@@ -7,8 +7,6 @@ namespace TestSolution.Console
     {
         public void Method1() // Should show warning
         {
-
-
         }
 
         public void Method2() // Should NOT show warning
