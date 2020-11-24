@@ -9,9 +9,8 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Rename;
-using Scanf.CodeSmell;
 
-namespace Scanf
+namespace Scanf.CodeSmell
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(EmptyMethodCodeFixProvider)), Shared]
     public class EmptyMethodCodeFixProvider : CodeFixProvider
@@ -37,17 +36,32 @@ namespace Scanf
 
             // Find the type declaration identified by the diagnostic.
             var methodDeclaration = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<MethodDeclarationSyntax>().First();
-            
+
             // Register a code action that will invoke the fix.
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title: CodeFixResources.EmptyMethodCodeFixTitle,
-                    createChangedDocument: c => MakeUppercaseAsync(context.Document, methodDeclaration, c),
-                    equivalenceKey: nameof(CodeFixResources.EmptyMethodCodeFixTitle)),
+                    title: CodeFixResources.CF_1002_Title_RaiseException,
+                    createChangedDocument: c => RaiseException(context.Document, methodDeclaration, c),
+                    equivalenceKey: nameof(CodeFixResources.CF_1002_Title_RaiseException)),
+                diagnostic);
+
+            context.RegisterCodeFix(
+                CodeAction.Create(
+                    title: CodeFixResources.CF_1002_Title_RemoveMethod,
+                    createChangedDocument: c => RemoveMethod(context.Document, methodDeclaration, c),
+                    equivalenceKey: nameof(CodeFixResources.CF_1002_Title_RemoveMethod)),
                 diagnostic);
         }
 
-        private async Task<Document> MakeUppercaseAsync(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
+        private async Task<Document> RaiseException(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
+        {
+            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
+            
+            var newRoot = oldRoot.RemoveNode(methodDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);
+            return document.WithSyntaxRoot(newRoot);
+        }
+
+        private async Task<Document> RemoveMethod(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
         {
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
             var newRoot = oldRoot.RemoveNode(methodDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);

@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EmptyMethodCodeFixTitle" xml:space="preserve">
-    <value>Remove Empty Method</value>
+  <data name="CF_1002_Title_RaiseException" xml:space="preserve">
+    <value>Raise NotImplemented Exception</value>
     <comment>The title of the code fix.</comment>
+  </data>
+  <data name="CF_1002_Title_RemoveMethod" xml:space="preserve">
+    <value>Remove Method</value>
   </data>
 </root>

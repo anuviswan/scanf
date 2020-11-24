@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
     Scanf.CodeSmell.EmptyMethodAnalyzer,
-    Scanf.EmptyMethodCodeFixProvider>;
+    Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
 
 namespace Scanf.Test
 {
