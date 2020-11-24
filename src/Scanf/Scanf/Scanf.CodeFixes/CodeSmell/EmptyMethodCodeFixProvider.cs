@@ -55,9 +55,24 @@ namespace Scanf.CodeSmell
 
         private async Task<Document> RaiseException(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
         {
+            var identifier = SyntaxFactory.IdentifierName("NotImplementedException");
+            var argumentList = SyntaxFactory.ArgumentList(); 
+            var objectExpression = SyntaxFactory.ObjectCreationExpression(identifier).WithArgumentList(argumentList);
+            var exceptionStatement = SyntaxFactory.ThrowStatement(objectExpression);//.NormalizeWhitespace();
+
+            var oldMethodBody = methodDeclaration.Body;
+            var oldMethodLeadingTrivia = oldMethodBody.GetLeadingTrivia();
+            
+            var newMethodBody = methodDeclaration.Body.AddStatements(exceptionStatement.WithLeadingTrivia(oldMethodLeadingTrivia));
+                
+    //            ThrowStatement(ObjectCreationExpression(
+    //    IdentifierName("NotImplementedException"))
+    //.WithArgumentList(
+    //    ArgumentList()))
+//.NormalizeWhitespace();
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
             
-            var newRoot = oldRoot.RemoveNode(methodDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);
+            var newRoot = oldRoot.ReplaceNode(oldMethodBody, newMethodBody);
             return document.WithSyntaxRoot(newRoot);
         }
 
