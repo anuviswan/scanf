@@ -22,14 +22,14 @@ namespace Scanf {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class CodeFixResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal CodeFixResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Scanf {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Scanf.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Scanf.CodeFixResources", typeof(CodeFixResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,11 @@ namespace Scanf {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Empty method could be removed.
+        ///   Looks up a localized string similar to Raise NotImplemented Exception.
         /// </summary>
-        internal static string AnalyzerDescription {
+        internal static string CF_1002_Title_RaiseException {
             get {
-                return ResourceManager.GetString("AnalyzerDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Method &apos;{0}&apos; is empty.
-        /// </summary>
-        internal static string AnalyzerMessageFormat {
-            get {
-                return ResourceManager.GetString("AnalyzerMessageFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Method is empty.
-        /// </summary>
-        internal static string AnalyzerTitle {
-            get {
-                return ResourceManager.GetString("AnalyzerTitle", resourceCulture);
+                return ResourceManager.GetString("CF_1002_Title_RaiseException", resourceCulture);
             }
         }
     }
