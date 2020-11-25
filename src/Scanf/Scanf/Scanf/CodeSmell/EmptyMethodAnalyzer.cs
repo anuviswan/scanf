@@ -37,8 +37,9 @@ namespace Scanf.CodeSmell
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var methodStatements = methodDeclaration.Body?.Statements;
+            var methodExpressions = methodDeclaration.ExpressionBody;
 
-            if (!(methodStatements?.Any()==true))
+            if (!(methodStatements?.Any()==true) && methodExpressions == null)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }

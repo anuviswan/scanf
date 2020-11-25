@@ -24,8 +24,11 @@ namespace Scanf.Test
         {
             yield return new object[] 
             { 
-                @"SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs",
-                @"SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty"
+                @"SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs"
+            };
+            yield return new object[]
+            {
+                @"SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty.cs"
             };
         }
 
