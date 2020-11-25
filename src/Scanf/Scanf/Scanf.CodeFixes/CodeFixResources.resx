@@ -121,7 +121,4 @@
     <value>Raise NotImplemented Exception</value>
     <comment>The title of the code fix.</comment>
   </data>
-  <data name="CF_1002_Title_RemoveMethod" xml:space="preserve">
-    <value>Remove Method</value>
-  </data>
 </root>

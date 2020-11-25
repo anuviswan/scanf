@@ -68,14 +68,5 @@ namespace Scanf {
                 return ResourceManager.GetString("CF_1002_Title_RaiseException", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove Method.
-        /// </summary>
-        internal static string CF_1002_Title_RemoveMethod {
-            get {
-                return ResourceManager.GetString("CF_1002_Title_RemoveMethod", resourceCulture);
-            }
-        }
     }
 }

@@ -45,13 +45,6 @@ namespace Scanf.CodeSmell
                     createChangedDocument: c => RaiseException(context.Document, methodDeclaration, c),
                     equivalenceKey: nameof(CodeFixResources.CF_1002_Title_RaiseException)),
                 diagnostic);
-
-            context.RegisterCodeFix(
-                CodeAction.Create(
-                    title: CodeFixResources.CF_1002_Title_RemoveMethod,
-                    createChangedDocument: c => RemoveMethod(context.Document, methodDeclaration, c),
-                    equivalenceKey: nameof(CodeFixResources.CF_1002_Title_RemoveMethod)),
-                diagnostic);
         }
 
         private async Task<Document> RaiseException(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
@@ -70,28 +63,6 @@ namespace Scanf.CodeSmell
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
             var newRoot = oldRoot.ReplaceNode(oldMethodBody, newMethodBody);
             return document.WithSyntaxRoot(newRoot);
-        }
-
-        private async Task<Document> RemoveMethod(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
-        {
-            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
-            var newRoot = oldRoot.RemoveNode(methodDeclaration, SyntaxRemoveOptions.KeepTrailingTrivia);
-            return document.WithSyntaxRoot(newRoot);
-
-            // Compute new uppercase name.
-            //var identifierToken = methodDeclaration.Identifier;
-            //var newName = identifierToken.Text.ToUpperInvariant();
-
-            //// Get the symbol representing the type to be renamed.
-            //var semanticModel = await document.GetSemanticModelAsync(cancellationToken);
-            //var typeSymbol = semanticModel.GetDeclaredSymbol(methodDeclaration, cancellationToken);
-
-            //// Produce a new solution that has all references to that type renamed, including the declaration.
-            //var originalSolution = document.Project.Solution;
-            //var optionSet = originalSolution.Workspace.Options;
-            //var newSolution = await Renamer.RenameSymbolAsync(document.Project.Solution, typeSymbol, newName, optionSet, cancellationToken).ConfigureAwait(false);
-            //// Return the new solution with the now-uppercase type name.
-            //return newSolution;
         }
     }
 }
