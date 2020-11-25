@@ -22,7 +22,11 @@ namespace Scanf.Test
 
         private static IEnumerable<object[]> GetValidData()
         {
-            yield return new object[] { @"SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" };
+            yield return new object[] 
+            { 
+                @"SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs",
+                @"SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty"
+            };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
@@ -38,8 +42,8 @@ namespace Scanf.Test
         {
             yield return new object[] 
             { 
-                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs", 
-                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs",
+                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs",
+                @"SF1002\TestData\Diagnostics\UnusedEmptyMethods_Fix_RaiseException.cs",
                 13,9
             };
         }

@@ -12,7 +12,6 @@ namespace Scanf.Test.SF1002.TestData.Diagnostics
 
         public void Bar()
         {
-
         }
     }
 }

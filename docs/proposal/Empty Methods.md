@@ -16,9 +16,13 @@ Empty methods in the code base could be removed
 public void Foo()
 {
 }
+
+public void Foo() => Expression.Empty();
 ```
 
-**Fix**
+**Code Fix**
+
+Code Fix with `NotImplementedException` raised.
 
 ```csharp
 public void Foo()

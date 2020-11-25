@@ -10,14 +10,22 @@
   <ItemGroup>
     <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs" />
     <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs" />
+    <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods_Fix_RaiseException.cs" />
+    <Compile Remove="SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty.cs" />
     <Compile Remove="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods.Fix.RaiseException.cs">
+    <None Include="SF1002\TestData\Diagnostics\UnusedEmptyMethods_Fix_RaiseException.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs">
