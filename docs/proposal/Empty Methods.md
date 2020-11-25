@@ -17,7 +17,6 @@ public void Foo()
 {
 }
 
-public void Foo() => Expression.Empty();
 ```
 
 **Code Fix**
@@ -33,9 +32,15 @@ public void Foo()
 
 **Update** : 25/11/2020
 
-First version would not provide option to remove the method. Instead, the only fix that would be available would to add exception.
+Extra Scenarios observed.
 
-In the next version, two fixes would be provided.
+Scenario 1 : Expression-bodied Metod with Expression.Empty()
 
-- Remove Empty Method
-- Add Exception
+Sample Non-Complaint Code
+```
+public void Foo() => Expression.Empty();
+```
+`Expresion.Empty()` intends to be used in scenarios where an expresion is expected, but no action is desired. This would point towards an intentional behavior rather than a code smell. At this point, this scenario would be considered a complaint code unless further questions/discusions raise in the topic.
+
+Scenario 2 : Should Empty Methods be removed.
+
