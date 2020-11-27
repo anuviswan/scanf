@@ -35,6 +35,6 @@ jobs:
         run: dotnet build --configuration Release .\src\Scanf\Scanf\Scanf.Package\
         
 
-    # Execute all unit tests in the solution
-    #- name: Execute unit tests
-    #  run: dotnet test
+     # Execute all unit tests in the solution
+      - name: Execute unit tests
+        run: dotnet test  .\src\Scanf\Scanf.sln
