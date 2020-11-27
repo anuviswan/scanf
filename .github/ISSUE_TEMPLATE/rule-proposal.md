@@ -1,27 +1,27 @@
 ---
 name: Rule Proposal
 about: Suggest a rule for implementation
-title: Suggested Rule
+title: Suggested Rule Title
 labels: feature
 assignees: ''
 
 ---
 
-🔖Methods, Clean Code
+🔖[Tags],[Tags]
 
-Category: [Category]
+**Category** : [Category]
 
-Description: Short description of the problem
+**Description** : Short description of the problem
 
 Detailed description of the problem
 
-Non-Complaint Code
+**Non-Complaint Code**
 ```
 // non-complaint code here
 ```
-Code Fix
+**Code Fix**
 
-Code Fix with [FixName] raised.
+Code Fix with _[FixName]_ raised.
 ```
 // Fix code here
 ```
