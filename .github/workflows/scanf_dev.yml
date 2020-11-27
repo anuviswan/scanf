@@ -1,1 +1,36 @@
-## TBD
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on:
+      windows-latest # For a list of available runner types, refer to
+      # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    env:
+      Solution_Name: src\Scanf\scanf.sln # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: src\Scanf\Scanf\Scanf.Test\Scanf.Test.csproj # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+      - name: Build Web Api
+        run: dotnet build --configuration Release .\src\Scanf\Scanf.Package\
+        working-directory: src\Scanf
