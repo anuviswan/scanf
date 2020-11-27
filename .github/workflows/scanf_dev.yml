@@ -33,7 +33,7 @@ jobs:
           dotnet-version: 3.1.101
       - name: Build Web Api
         run: dotnet build --configuration Release .\src\Scanf\Scanf\Scanf.Package\
-        working-directory: src\Scanf
+        
 
     # Execute all unit tests in the solution
     #- name: Execute unit tests
