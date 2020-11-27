@@ -1,20 +1,27 @@
 ---
 name: Rule Proposal
 about: Suggest a rule for implementation
-title: ''
-labels: ''
+title: Suggested Rule
+labels: feature
 assignees: ''
 
 ---
 
-**Describe the problem you are looking to solve**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+🔖Methods, Clean Code
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+Category: [Category]
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+Description: Short description of the problem
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Detailed description of the problem
+
+Non-Complaint Code
+```
+// non-complaint code here
+```
+Code Fix
+
+Code Fix with [FixName] raised.
+```
+// Fix code here
+```
