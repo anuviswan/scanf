@@ -9,7 +9,7 @@ using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 namespace Scanf.Test
 {
     [TestClass]
-    public class ScanfUnitTest
+    public class SF002Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
