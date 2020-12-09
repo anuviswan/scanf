@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
     Scanf.CodeSmell.EmptyMethodAnalyzer,
     Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
@@ -37,7 +38,7 @@ namespace Scanf.Test
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
         public async Task CodeThatRequireFix(string inputSrc,string expectedSrc,int line,int col)
         {
-            var rule = VerifyCS.Diagnostic("SF1002");
+            var rule = VerifyCS.Diagnostic(EmptyMethodAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line,col).WithArguments("Bar");
             await VerifyCS.VerifyCodeFixAsync(File.ReadAllText(inputSrc), expected, File.ReadAllText(expectedSrc));
         }

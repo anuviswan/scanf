@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
     Scanf.CodeSmell.TodoAnalyzer,
     Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
@@ -27,10 +28,6 @@ namespace Scanf.Test
             {
                 @"SF1003\TestData\NoDiagnostics\NoComments.cs"
             };
-            //yield return new object[]
-            //{
-            //    @"SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty.cs"
-            //};
         }
 
         //Diagnostic and CodeFix both triggered and checked for
@@ -38,7 +35,7 @@ namespace Scanf.Test
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
         public async Task CodeThatRequireFix(string inputSrc, int line, int col,string value)
         {
-            var rule = VerifyCS.Diagnostic("SF1003");
+            var rule = VerifyCS.Diagnostic(TodoAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
             await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputSrc), expected);
         }
