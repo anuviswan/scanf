@@ -117,16 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AnalyzerDescription" xml:space="preserve">
+  <data name="SFA_1002_AnalyzerDescription" xml:space="preserve">
     <value>Empty method could be removed</value>
     <comment>An optional longer localizable description of the diagnostic.</comment>
   </data>
-  <data name="AnalyzerMessageFormat" xml:space="preserve">
+  <data name="SFA_1002_AnalyzerMessageFormat" xml:space="preserve">
     <value>Method '{0}' is empty</value>
     <comment>The format-able message the diagnostic displays.</comment>
   </data>
-  <data name="AnalyzerTitle" xml:space="preserve">
+  <data name="SFA_1002_AnalyzerTitle" xml:space="preserve">
     <value>Method is empty</value>
     <comment>The title of the diagnostic.</comment>
+  </data>
+  <data name="SFA_1003_AnalyzerDescription" xml:space="preserve">
+    <value>Possible not implemented functionality</value>
+  </data>
+  <data name="SFA_1003_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Possible not implemented functionaliry</value>
+  </data>
+  <data name="SFA_1003_AnalyzerTitle" xml:space="preserve">
+    <value>Unattended Todo</value>
   </data>
 </root>
