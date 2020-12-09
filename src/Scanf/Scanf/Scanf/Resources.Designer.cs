@@ -63,27 +63,54 @@ namespace Scanf {
         /// <summary>
         ///   Looks up a localized string similar to Empty method could be removed.
         /// </summary>
-        internal static string AnalyzerDescription {
+        internal static string SFA_1002_AnalyzerDescription {
             get {
-                return ResourceManager.GetString("AnalyzerDescription", resourceCulture);
+                return ResourceManager.GetString("SFA_1002_AnalyzerDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Method &apos;{0}&apos; is empty.
         /// </summary>
-        internal static string AnalyzerMessageFormat {
+        internal static string SFA_1002_AnalyzerMessageFormat {
             get {
-                return ResourceManager.GetString("AnalyzerMessageFormat", resourceCulture);
+                return ResourceManager.GetString("SFA_1002_AnalyzerMessageFormat", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Method is empty.
         /// </summary>
-        internal static string AnalyzerTitle {
+        internal static string SFA_1002_AnalyzerTitle {
             get {
-                return ResourceManager.GetString("AnalyzerTitle", resourceCulture);
+                return ResourceManager.GetString("SFA_1002_AnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Possible not implemented functionality.
+        /// </summary>
+        internal static string SFA_1003_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1003_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Possible not implemented functionaliry.
+        /// </summary>
+        internal static string SFA_1003_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1003_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unattended Todo.
+        /// </summary>
+        internal static string SFA_1003_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1003_AnalyzerTitle", resourceCulture);
             }
         }
     }

@@ -13,6 +13,13 @@
     <Compile Remove="SF1002\TestData\Diagnostics\UnusedEmptyMethods_Fix_RaiseException.cs" />
     <Compile Remove="SF1002\TestData\NoDiagnostics\MethodWithExpressionEmpty.cs" />
     <Compile Remove="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs" />
+    <Compile Remove="SF1003\TestData\Diagnostics\MethodWithMultiLineComment.cs" />
+    <Compile Remove="SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs" />
+    <Compile Remove="SF1003\TestData\NoDiagnostics\NoComments.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +36,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1002\TestData\NoDiagnostics\NoEmptyMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1003\TestData\Diagnostics\MethodWithMultiLineComment.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1003\TestData\NoDiagnostics\NoComments.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
