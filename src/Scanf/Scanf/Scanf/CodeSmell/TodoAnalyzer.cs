@@ -63,7 +63,6 @@ namespace Scanf.CodeSmell
                 }
             }
 
-
             void _(Location location, params string []cmntText)
             {
                 if (cmntText.Any(x=>x.TrimStart().StartsWith("Todo", StringComparison.OrdinalIgnoreCase)))
@@ -72,8 +71,6 @@ namespace Scanf.CodeSmell
                 }
             }
         }
-        
-      
 
     }
 }
