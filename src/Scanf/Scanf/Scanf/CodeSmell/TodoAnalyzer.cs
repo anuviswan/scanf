@@ -40,14 +40,27 @@ namespace Scanf.CodeSmell
             var commentTrivias = root.DescendantTrivia()
                                    .Where(x => x.IsKind(SyntaxKind.SingleLineCommentTrivia) || x.IsKind(SyntaxKind.MultiLineCommentTrivia));
 
-            const string CommentGroupName = "CommentText";
-
-
             foreach (var comment in commentTrivias)
             {
-                var commentAsString = comment.ToString();
-                var commentText = comment.Kind() == SyntaxKind.SingleLineCommentTrivia ? new[] { commentAsString.TrimStart('/') } : commentAsString.Substring(2, commentAsString.Length - 2).Split(new[] { '\n','*',' ' },StringSplitOptions.RemoveEmptyEntries);
-                _(comment.GetLocation(), commentText);
+                var commentTriviaAsString = comment.ToString();
+
+                switch (comment.Kind())
+                {
+                    case SyntaxKind.SingleLineCommentTrivia:
+                    {
+                            var commentText = commentTriviaAsString.TrimStart('/');
+                            _(comment.GetLocation(), commentText);
+                            break;
+                    }
+                    case SyntaxKind.MultiLineCommentTrivia:
+                    {
+                        var commentLines = commentTriviaAsString.Substring(2,commentTriviaAsString.Length - 2)
+                                                                .Split(new[] { '\n' },StringSplitOptions.RemoveEmptyEntries)
+                                                                .Select(x=>x.TrimStart().TrimStart('*')).ToArray();
+                        _(comment.GetLocation(), commentLines);
+                        break;
+                    }
+                }
             }
 
 
@@ -59,6 +72,8 @@ namespace Scanf.CodeSmell
                 }
             }
         }
+        
+      
 
     }
 }

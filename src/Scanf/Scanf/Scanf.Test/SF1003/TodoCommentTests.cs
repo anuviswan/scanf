@@ -44,12 +44,12 @@ namespace Scanf.Test
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
-            //yield return new object[]
-            //{
-            //    @"SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs",
-            //    11,13,
-            //    "// TODO : This should be caught"
-            //};
+            yield return new object[]
+            {
+                @"SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs",
+                11,13,
+                "// TODO : This should be caught"
+            };
 
             yield return new object[]
             {
