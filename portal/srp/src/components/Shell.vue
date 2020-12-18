@@ -1,17 +1,19 @@
 <template>
-  <div class="row">
-    <div class="col-3">
-      Rule here
-    </div>
-    <div class="col-9">
-      Description here
+  <div>
+    <Header />
+    <div class="pt-5">
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import Header from "./generic/Header";
 export default {
   name: "Shell",
+  components: {
+    Header,
+  },
   props: {
     msg: String,
   },
