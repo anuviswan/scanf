@@ -5,23 +5,15 @@
         Scanf Rules
       </v-toolbar-title>
     </v-app-bar>
-    <v-main>
-      <v-container>
-        <v-row>
-          <v-col cols="3"><v-card>Rule List</v-card></v-col>
-          <v-divider></v-divider>
-          <v-col cols="9"><v-card>Rule Description</v-card></v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+    <v-main><Shell /> </v-main>
   </v-app>
 </template>
 
 <script>
-import Navbar from "./components/generic/Navbar.vue";
+import Shell from "./components/Shell";
 export default {
+  components: { Shell },
   name: "App",
-  component: { Navbar },
 };
 </script>
 

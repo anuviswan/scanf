@@ -1,25 +1,17 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <Navbar />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <RuleList />
-      </div>
-    </div>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="3" align-self="start"><RuleList /></v-col>
+      <v-col cols="9"><v-card>Rule Description</v-card></v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import Navbar from "./generic/Navbar";
-import RuleList from "./generic/RuleList";
+import RuleList from "./rules/RuleList";
 export default {
   name: "Shell",
   components: {
-    Navbar,
     RuleList,
   },
   props: {
