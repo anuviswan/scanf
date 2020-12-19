@@ -1,18 +1,26 @@
 <template>
-  <div>
-    <Header />
-    <div class="pt-5">
-      <router-view></router-view>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <Navbar />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <RuleList />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from "./generic/Header";
+import Navbar from "./generic/Navbar";
+import RuleList from "./generic/RuleList";
 export default {
   name: "Shell",
   components: {
-    Header,
+    Navbar,
+    RuleList,
   },
   props: {
     msg: String,
