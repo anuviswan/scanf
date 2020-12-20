@@ -12,7 +12,7 @@
 
 <script>
 import RuleItem from "./RuleItem";
-import { getAllRuleCategories } from "../../api/rule";
+import { getAllRuleCategories, getAllItemsForCategory } from "../../api/rule";
 export default {
   name: "RuleList",
   components: { RuleItem },
@@ -24,9 +24,13 @@ export default {
   },
   async created() {
     console.log("Retrieving information");
-    var response = await getAllRuleCategories();
-    this.categoryList = response;
+    var responseCategories = await getAllRuleCategories();
+    this.categoryList = responseCategories;
+
+    var responseItems = await getAllItemsForCategory("Code Smell");
+    this.ruleList = responseItems;
     console.log(this.categoryList);
+    console.log(this.ruleList);
   },
 };
 </script>
