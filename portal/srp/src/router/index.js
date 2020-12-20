@@ -5,6 +5,7 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 
 Vue.use(Vuetify);
+
 Vue.use(VueRouter)
 
 const routes = [
