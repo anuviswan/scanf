@@ -40,6 +40,11 @@ const getAllItemsForCategory = async (category)=>{
     return result;
 }
 
+const getRuleDescription = async (url)=>{
+    const response = await axios.get(url);
+    console.log(response);
+}
+
 export {
-    getAllRuleCategories, getAllItemsForCategory
+    getAllRuleCategories, getAllItemsForCategory,getRuleDescription
 };
