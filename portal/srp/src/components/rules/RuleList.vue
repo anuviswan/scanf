@@ -1,15 +1,15 @@
 <template>
-  <v-card class="mx-auto" tile>
-    <v-combobox small-chips solo v-bind:items="categoryList"></v-combobox>
-    <v-divider />
+  <v-card outlined tile>
     <v-list style="max-height: 800px" class="overflow-y-auto">
-      <template v-for="(item, index) in ruleList">
-        <RuleItem
-          v-bind:item="item"
-          :key="index"
-          v-on:onItemClicked="handleOnItemClicked"
-        />
-      </template>
+      <v-list-item-group active-class="blue-grey darken-3--text dark">
+        <template v-for="(item, index) in ruleList">
+          <RuleItem
+            v-bind:item="item"
+            :key="index"
+            v-on:onItemClicked="handleOnItemClicked"
+          />
+        </template>
+      </v-list-item-group>
     </v-list>
   </v-card>
 </template>
