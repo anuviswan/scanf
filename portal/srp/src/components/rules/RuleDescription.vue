@@ -8,7 +8,7 @@
 
 <script>
 import { VueShowdown } from "vue-showdown";
-//import { getRuleDescription } from "../../api/rule";
+import { getRuleDescription } from "../../api/rule";
 export default {
   name: "RuleDescription",
   components: { VueShowdown },
@@ -20,10 +20,18 @@ export default {
       description: "## Avoid using async void",
     };
   },
-  async created() {
-    // console.log(this.item);
-    // const response = await getRuleDescription(this.item.description);
-    // this.description = response;
+  created() {
+    console.log(this.description);
+  },
+  watch: {
+    item: async function(newValue, oldValue) {
+      console.log("change caught in watch - " + newValue + "," + oldValue);
+      console.log(this.description);
+      const response = await getRuleDescription(newValue);
+      console.log(atob(response));
+      this.description = atob(response);
+      console.log(this.description);
+    },
   },
 };
 </script>

@@ -1,9 +1,11 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="3" align-self="start"><RuleList /></v-col>
+      <v-col cols="3" align-self="start"
+        ><RuleList v-on:onItemSelectionChanged="handleOnItemSelectionChanged"
+      /></v-col>
       <v-col cols="9"
-        ><v-card><RuleDescription /></v-card
+        ><v-card><RuleDescription v-bind:item="ruleSelected"/></v-card
       ></v-col>
     </v-row>
   </v-container>
@@ -20,6 +22,17 @@ export default {
   },
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      ruleSelected: {},
+    };
+  },
+  methods: {
+    handleOnItemSelectionChanged(item) {
+      console.log(item);
+      this.ruleSelected = item;
+    },
   },
 };
 </script>

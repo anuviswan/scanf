@@ -4,7 +4,11 @@
     <v-divider />
     <v-list style="max-height: 800px" class="overflow-y-auto">
       <template v-for="(item, index) in ruleList">
-        <RuleItem v-bind:item="item" :key="index" />
+        <RuleItem
+          v-bind:item="item"
+          :key="index"
+          v-on:onItemClicked="handleOnItemClicked"
+        />
       </template>
     </v-list>
   </v-card>
@@ -31,6 +35,11 @@ export default {
     this.ruleList = responseItems;
     console.log(this.categoryList);
     console.log(this.ruleList);
+  },
+  methods: {
+    handleOnItemClicked(item) {
+      this.$emit("onItemSelectionChanged", item);
+    },
   },
 };
 </script>

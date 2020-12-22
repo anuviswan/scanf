@@ -42,7 +42,8 @@ const getAllItemsForCategory = async (category)=>{
 
 const getRuleDescription = async (url)=>{
     const response = await axios.get(url);
-    console.log(response);
+    console.log(response.data.content);
+    return response.data.content;
 }
 
 export {

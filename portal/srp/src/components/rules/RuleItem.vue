@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-list-item :key="item.title" two-line @click="onClick(item.title)">
+    <v-list-item :key="item.title" two-line @click="onClick(item)">
       <v-list-item-content class="float-left">
         <v-list-item-title>{{ item.title }}</v-list-item-title>
         <v-list-item-subtitle>{{ item.category }} </v-list-item-subtitle>
@@ -20,8 +20,9 @@ export default {
     console.log(this.item);
   },
   methods: {
-    onClick(item) {
-      console.log(item);
+    onClick(itemClicked) {
+      console.log(itemClicked);
+      this.$emit("onItemClicked", itemClicked.description);
     },
   },
 };
