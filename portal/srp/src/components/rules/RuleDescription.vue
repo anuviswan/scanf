@@ -1,9 +1,11 @@
 <template>
-  <VueShowdown
-    v-bind:markdown="this.description"
-    flavor="github"
-    :options="{ emoji: true }"
-  />
+  <v-card outlined tile>
+    <VueShowdown
+      v-bind:markdown="this.description"
+      flavor="vanilla"
+      :options="{ emoji: true }"
+      class="text-left px-3"
+  /></v-card>
 </template>
 
 <script>

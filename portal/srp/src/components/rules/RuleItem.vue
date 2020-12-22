@@ -1,6 +1,9 @@
 <template>
   <div>
     <v-list-item :key="item.title" two-line @click="onClick(item)">
+      <v-list-item-icon>
+        <v-icon small>fas fa-code</v-icon>
+      </v-list-item-icon>
       <v-list-item-content class="float-left">
         <v-list-item-title>{{ item.title }}</v-list-item-title>
         <v-list-item-subtitle>{{ item.category }} </v-list-item-subtitle>
