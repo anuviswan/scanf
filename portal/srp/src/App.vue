@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Shell from "./components/Shell";
+// import Shell from "./components/Shell";
 export default {
-  components: { Shell },
+  // components: { Shell },
   name: "App",
 };
 </script>
