@@ -11,8 +11,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: windows-latest
-    env:
-      working-directory: './portal/srp'
+    #env:
+      # working-directory: './portal/srp'
 
     steps:
     - uses: actions/checkout@master
@@ -27,7 +27,7 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
-        working-directory: ${{env.working-directory}}
+        working-directory: portal/srp
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
