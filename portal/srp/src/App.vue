@@ -5,7 +5,7 @@
         Scanf Rules
       </v-toolbar-title>
     </v-app-bar>
-    <v-content><Shell /> </v-content>
+    <v-content>Dummy</v-content>
   </v-app>
 </template>
 

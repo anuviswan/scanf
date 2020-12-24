@@ -28,8 +28,6 @@ const getAllItemsForCategory = async (category)=>{
     const result = response.data.map(item=>{
         const serializedData = JSON.parse(item.value);
 
-        console.log('sdata='+serializedData)
-        console.log(serializedData.title)
         return {
             title: serializedData.title,
             description: serializedData.descriptionPath,
