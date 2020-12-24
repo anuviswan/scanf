@@ -12,7 +12,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     env:
-      working-directory: ./portal/srp
+      working-directory: '.\portal\srp'
 
     steps:
     - uses: actions/checkout@master
