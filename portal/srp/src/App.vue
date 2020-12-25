@@ -5,13 +5,14 @@
         Scanf Rules
       </v-toolbar-title>
     </v-app-bar>
-    <v-content>Dummy</v-content>
+    <v-content><Shell /></v-content>
   </v-app>
 </template>
 
 <script>
-// import Shell from "./components/Shell";
+import Shell from "./components/Shell";
 export default {
+  components: { Shell },
   // components: { Shell },
   name: "App",
 };
