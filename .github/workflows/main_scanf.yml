@@ -34,5 +34,5 @@ jobs:
       with:
         app-name: 'scanf'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ddf449f429a746bca9864c83e14a5906 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e28ec0a07e304a59ba21de1abeb4ced6 }}
         package: .
