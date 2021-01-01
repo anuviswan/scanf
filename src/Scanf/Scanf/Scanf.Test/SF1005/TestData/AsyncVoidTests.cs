@@ -33,6 +33,11 @@ namespace Scanf.Test
            {
                 @"SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs",
            };
+
+           yield return new object[]
+           {
+                @"SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs",
+           };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
