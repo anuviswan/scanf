@@ -113,5 +113,32 @@ namespace Scanf {
                 return ResourceManager.GetString("SFA_1003_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async void should be avoided.
+        /// </summary>
+        internal static string SFA_1005_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1005_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async void methods should be avoided.
+        /// </summary>
+        internal static string SFA_1005_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1005_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asnc void method detected.
+        /// </summary>
+        internal static string SFA_1005_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1005_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }
