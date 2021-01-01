@@ -32,10 +32,9 @@ namespace Scanf.CodeSmell
         private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
-            var methodStatements = methodDeclaration.Body?.Statements;
-            var methodExpressions = methodDeclaration.ExpressionBody;
+            var isAsyncMethod = methodDeclaration.Modifiers.Any(SyntaxKind.AsyncKeyword);
 
-            if (!(methodStatements?.Any() == true) && methodExpressions == null)
+            if (isAsyncMethod)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }

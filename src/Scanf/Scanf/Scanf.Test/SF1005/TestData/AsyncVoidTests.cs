@@ -48,20 +48,11 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs",
+                @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
                 11,13,
                 "// TODO : This should be caught"
             };
 
-            yield return new object[]
-            {
-                @"SF1003\TestData\Diagnostics\MethodWithMultiLineComment.cs",
-                11,13,
-                @"/* This a ordinary comment
-             * TODO : This should be caught
-             * This should be ignored as well
-             */"
-            };
         }
     }
 }
