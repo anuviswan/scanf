@@ -115,7 +115,7 @@ namespace Scanf {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Async void should be avoided.
+        ///   Looks up a localized string similar to Async method should not return void.
         /// </summary>
         internal static string SFA_1005_AnalyzerDescription {
             get {
@@ -124,7 +124,7 @@ namespace Scanf {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Async void methods should be avoided.
+        ///   Looks up a localized string similar to Async method should not return void.
         /// </summary>
         internal static string SFA_1005_AnalyzerMessageFormat {
             get {
@@ -133,7 +133,7 @@ namespace Scanf {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Asnc void method detected.
+        ///   Looks up a localized string similar to Async method should not return void.
         /// </summary>
         internal static string SFA_1005_AnalyzerTitle {
             get {

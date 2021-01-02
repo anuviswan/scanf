@@ -139,12 +139,12 @@
     <value>Unattended Todo</value>
   </data>
   <data name="SFA_1005_AnalyzerDescription" xml:space="preserve">
-    <value>Async void should be avoided</value>
+    <value>Async method should not return void</value>
   </data>
   <data name="SFA_1005_AnalyzerMessageFormat" xml:space="preserve">
-    <value>Async void methods should be avoided</value>
+    <value>Async method should not return void</value>
   </data>
   <data name="SFA_1005_AnalyzerTitle" xml:space="preserve">
-    <value>Asnc void method detected</value>
+    <value>Async method should not return void</value>
   </data>
 </root>
