@@ -22,5 +22,21 @@ namespace TestSolution.Console
         {
             await Task.FromResult(false);
         }
+
+        public SF1005()
+        {
+            var foo = new Foo();
+            foo.SampleEvent += Foo_SampleEvent;
+        }
+
+        private async void Foo_SampleEvent(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Foo
+    {
+        public event EventHandler SampleEvent;
     }
 }

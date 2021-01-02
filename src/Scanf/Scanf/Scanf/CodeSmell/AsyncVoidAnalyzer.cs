@@ -4,6 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
+using Scanf.Utils.ExtensionMethods;
 
 namespace Scanf.CodeSmell
 {
@@ -32,10 +33,12 @@ namespace Scanf.CodeSmell
         private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
-            var isAsyncMethod = methodDeclaration.Modifiers.Any(SyntaxKind.AsyncKeyword);
+            var isAsyncMethod = methodDeclaration.IsAsync();
+            var isEventHandler = methodDeclaration.IsEvantHandler(context);
             var returnType = methodDeclaration.ReturnType;
 
-            if(returnType is PredefinedTypeSyntax)
+
+            if(returnType is PredefinedTypeSyntax && !isEventHandler)
             {
                 var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
 

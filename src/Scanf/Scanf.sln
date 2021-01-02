@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30709.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf", "Scanf\Scanf\Scanf.csproj", "{39849433-BE60-4C9C-B369-2873405834FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf", "Scanf\Scanf\Scanf.csproj", "{39849433-BE60-4C9C-B369-2873405834FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.CodeFixes", "Scanf\Scanf.CodeFixes\Scanf.CodeFixes.csproj", "{FAAEA8AF-834D-43FB-9981-5739EDF16593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.CodeFixes", "Scanf\Scanf.CodeFixes\Scanf.CodeFixes.csproj", "{FAAEA8AF-834D-43FB-9981-5739EDF16593}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.Package", "Scanf\Scanf.Package\Scanf.Package.csproj", "{528CDC31-382F-44DA-B0D7-486D91663462}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Package", "Scanf\Scanf.Package\Scanf.Package.csproj", "{528CDC31-382F-44DA-B0D7-486D91663462}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.Test", "Scanf\Scanf.Test\Scanf.Test.csproj", "{C0AFFACB-92B2-4E91-ABC6-4B8F3ED7B3EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Test", "Scanf\Scanf.Test\Scanf.Test.csproj", "{C0AFFACB-92B2-4E91-ABC6-4B8F3ED7B3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.Vsix", "Scanf\Scanf.Vsix\Scanf.Vsix.csproj", "{6AD6A10E-6A8C-4980-8810-CAEF995D5520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Vsix", "Scanf\Scanf.Vsix\Scanf.Vsix.csproj", "{6AD6A10E-6A8C-4980-8810-CAEF995D5520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.Utils", "Scanf.Utils\Scanf.Utils.csproj", "{F021AB84-A40B-4F1F-B800-C25FE28B368C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6AD6A10E-6A8C-4980-8810-CAEF995D5520}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD6A10E-6A8C-4980-8810-CAEF995D5520}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD6A10E-6A8C-4980-8810-CAEF995D5520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F021AB84-A40B-4F1F-B800-C25FE28B368C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F021AB84-A40B-4F1F-B800-C25FE28B368C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F021AB84-A40B-4F1F-B800-C25FE28B368C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F021AB84-A40B-4F1F-B800-C25FE28B368C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
