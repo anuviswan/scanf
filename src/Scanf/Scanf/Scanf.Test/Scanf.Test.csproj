@@ -17,6 +17,7 @@
     <Compile Remove="SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs" />
     <Compile Remove="SF1003\TestData\NoDiagnostics\NoComments.cs" />
     <Compile Remove="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs" />
+    <Compile Remove="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
@@ -52,6 +53,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs">

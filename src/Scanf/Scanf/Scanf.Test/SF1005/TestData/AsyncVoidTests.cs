@@ -43,11 +43,13 @@ namespace Scanf.Test
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputSrc, int line, int col, string value)
+        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value,string expectedCodeFixFile)
         {
+            var inputSource = File.ReadAllText(inputFile);
+            var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
             var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputSrc), expected);
+            await VerifyCS.VerifyCodeFixAsync(inputSource,expected, expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
@@ -55,7 +57,8 @@ namespace Scanf.Test
             {
                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
                 7,9,
-                "// TODO : This should be caught"
+                "// TODO : This should be caught",
+                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs",
             };
 
         }
