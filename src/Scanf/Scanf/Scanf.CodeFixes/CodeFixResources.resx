@@ -121,4 +121,7 @@
     <value>Raise NotImplemented Exception</value>
     <comment>The title of the code fix.</comment>
   </data>
+  <data name="CF_1005_Title_ReturnTask" xml:space="preserve">
+    <value>Return Task</value>
+  </data>
 </root>
