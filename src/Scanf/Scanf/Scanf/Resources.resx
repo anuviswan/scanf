@@ -142,9 +142,9 @@
     <value>Async method should not return void</value>
   </data>
   <data name="SFA_1005_AnalyzerMessageFormat" xml:space="preserve">
-    <value>Async method should not return void</value>
+    <value>Async method '{0}' should not return void</value>
   </data>
   <data name="SFA_1005_AnalyzerTitle" xml:space="preserve">
-    <value>Async method should not return void</value>
+    <value>Async void method detected</value>
   </data>
 </root>
