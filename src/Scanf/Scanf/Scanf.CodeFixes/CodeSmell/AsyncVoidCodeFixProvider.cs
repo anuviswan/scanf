@@ -53,18 +53,6 @@ namespace Scanf.CodeSmell
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
             var newRoot = oldRoot.ReplaceNode(methodDeclaration, newMethodDeclaration);
             return document.WithSyntaxRoot(newRoot);
-
-
-            //methodDeclaration.ReplaceNode(methodDeclaration,(x,y)=>)
-            //var oldReturnType = methodDeclaration.ReturnType;
-            //var oldMethodLeadingTrivia = oldReturnType.GetLeadingTrivia();
-            //var newMthodWithLeadingTrivia = exceptionStatement.WithLeadingTrivia(oldMethodLeadingTrivia);
-
-            //var newMethodBody = methodDeclaration.Body.AddStatements(newMthodWithLeadingTrivia);
-
-            //var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
-            //var newRoot = oldRoot.ReplaceNode(oldReturnType, newMethodBody);
-            //return document.WithSyntaxRoot(newRoot);
         }
     }
 }

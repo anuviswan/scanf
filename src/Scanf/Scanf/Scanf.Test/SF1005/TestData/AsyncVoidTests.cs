@@ -5,8 +5,8 @@ using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-    Scanf.CodeSmell.TodoAnalyzer,
-    Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
+    Scanf.CodeSmell.AsyncVoidAnalyzer,
+    Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 
 namespace Scanf.Test
 {
@@ -45,7 +45,7 @@ namespace Scanf.Test
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
         public async Task CodeThatRequireFix(string inputSrc, int line, int col, string value)
         {
-            var rule = VerifyCS.Diagnostic(TodoAnalyzer.DiagnosticId);
+            var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
             await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputSrc), expected);
         }
@@ -54,7 +54,7 @@ namespace Scanf.Test
             yield return new object[]
             {
                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
-                11,13,
+                7,9,
                 "// TODO : This should be caught"
             };
 
