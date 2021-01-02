@@ -68,5 +68,14 @@ namespace Scanf {
                 return ResourceManager.GetString("CF_1002_Title_RaiseException", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return Task.
+        /// </summary>
+        internal static string CF_1005_Title_ReturnTask {
+            get {
+                return ResourceManager.GetString("CF_1005_Title_ReturnTask", resourceCulture);
+            }
+        }
     }
 }

@@ -33,11 +33,18 @@ namespace Scanf.CodeSmell
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var isAsyncMethod = methodDeclaration.Modifiers.Any(SyntaxKind.AsyncKeyword);
+            var returnType = methodDeclaration.ReturnType;
 
-            if (isAsyncMethod)
+            if(returnType is PredefinedTypeSyntax)
             {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
+                var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
+
+                if (isAsyncMethod && isReturnTypeVoid)
+                {
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
+                }
             }
+            
         }
 
     }
