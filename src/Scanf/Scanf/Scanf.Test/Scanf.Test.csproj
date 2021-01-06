@@ -21,6 +21,8 @@
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
+    <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs" />
+    <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
   </ItemGroup>
 
@@ -68,6 +70,12 @@
     <None Include="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -89,10 +97,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Scanf.CodeFixes\Scanf.CodeFixes.csproj" />
     <ProjectReference Include="..\Scanf\Scanf.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SF1008\TestData\Diagnostics\" />
   </ItemGroup>
 
 </Project>

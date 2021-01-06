@@ -6,10 +6,10 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
 using Scanf.Utils.ExtensionMethods;
 
-namespace Scanf.CodeSmell
+namespace Scanf.NamingConvention
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    class AsyncMethodNamingConventionAnalyzer : DiagnosticAnalyzer
+    public class AsyncMethodAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = DiagnosticCodes.AsyncMethodNamingConventionRule;
 
