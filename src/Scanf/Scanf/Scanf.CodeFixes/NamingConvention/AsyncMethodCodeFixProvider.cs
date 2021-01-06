@@ -36,6 +36,7 @@ namespace Scanf.NamingConvention
 
             var methodDeclaration = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<MethodDeclarationSyntax>().First();
 
+
             context.RegisterCodeFix(
                 CodeAction.Create(
                     title: CodeFixResources.CF_1005_Title_ReturnTask,

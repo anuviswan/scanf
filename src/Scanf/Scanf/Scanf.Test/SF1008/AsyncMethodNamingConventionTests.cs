@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Scanf.CodeSmell;
+using Scanf.NamingConvention;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 Scanf.NamingConvention.AsyncMethodAnalyzer,
-Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
+Scanf.NamingConvention.AsyncMethodCodeFixProvider>;
 
 namespace Scanf.Test
 {
@@ -42,7 +41,7 @@ namespace Scanf.Test
         {
             var inputSource = File.ReadAllText(inputFile);
             var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
-            var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
+            var rule = VerifyCS.Diagnostic(AsyncMethodAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
             await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
@@ -52,16 +51,16 @@ namespace Scanf.Test
             {
                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs",
                 7,9,
-                "// TODO : This should be caught",
-                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_ReturnTask.cs",
+                "GetData",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_RenameMethods.cs",
             };
 
             yield return new object[]
 {
                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
                 7,9,
-                "// TODO : This should be caught",
-                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_ReturnTask.cs",
+                "GetData",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs",
 };
 
         }

@@ -34,21 +34,17 @@ namespace Scanf.NamingConvention
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var isAsyncMethod = methodDeclaration.IsAsync();
+            var methodName = methodDeclaration.Identifier.Text;
 
-            var isEventHandler = methodDeclaration.IsEvantHandler(context);
-            var returnType = methodDeclaration.ReturnType;
+            if (!isAsyncMethod) return;
 
 
-            if (returnType is PredefinedTypeSyntax && !isEventHandler)
+            if (methodName.EndsWith("Async"))
             {
-                var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
-
-                if (isAsyncMethod && isReturnTypeVoid)
-                {
-                    context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
-                }
+                return;
             }
 
+            context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
         }
 
     }
