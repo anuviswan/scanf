@@ -77,5 +77,14 @@ namespace Scanf {
                 return ResourceManager.GetString("CF_1005_Title_ReturnTask", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename Method with suffix &apos;Async&apos;.
+        /// </summary>
+        internal static string CF_1008_Title_RenameMethod {
+            get {
+                return ResourceManager.GetString("CF_1008_Title_RenameMethod", resourceCulture);
+            }
+        }
     }
 }

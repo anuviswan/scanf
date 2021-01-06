@@ -11,6 +11,8 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Rename;
+using Scanf.Utils.ExtensionMethods;
 
 namespace Scanf.NamingConvention
 {
@@ -39,21 +41,24 @@ namespace Scanf.NamingConvention
 
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title: CodeFixResources.CF_1005_Title_ReturnTask,
-                    createChangedDocument: c => UseTaskReturnType(context.Document, methodDeclaration, c),
-                    equivalenceKey: nameof(CodeFixResources.CF_1005_Title_ReturnTask)),
+                    title: CodeFixResources.CF_1008_Title_RenameMethod,
+                    createChangedSolution: c => RenameMethod(context.Document, methodDeclaration, c),
+                    equivalenceKey: nameof(CodeFixResources.CF_1008_Title_RenameMethod)),
                 diagnostic);
         }
 
-        private async Task<Document> UseTaskReturnType(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
+        private async Task<Solution> RenameMethod(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
         {
-            var originalReturnType = methodDeclaration.ReturnType;
-            var newReturnType = SyntaxFactory.ParseTypeName(nameof(Task)).WithTrailingTrivia(originalReturnType.GetTrailingTrivia());
-            var newMethodDeclaration = methodDeclaration.WithReturnType(newReturnType);
+            var existingName = methodDeclaration.Identifier.Text;
+            var newName = $"{existingName}Async";
 
-            var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
-            var newRoot = oldRoot.ReplaceNode(methodDeclaration, newMethodDeclaration);
-            return document.WithSyntaxRoot(newRoot);
+            if(existingName.EndsWith("async"))
+            {
+                var lastIndex = existingName.LastIndexOf("async");
+                newName = $"{existingName.Remove(lastIndex, 5)}Async"; 
+            }
+            var newSolution = await methodDeclaration.RenameMethod(document, newName, cancellationToken);
+            return newSolution;
         }
     }
 }

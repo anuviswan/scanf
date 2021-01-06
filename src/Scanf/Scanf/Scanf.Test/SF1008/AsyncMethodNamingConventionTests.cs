@@ -59,7 +59,7 @@ namespace Scanf.Test
 {
                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
                 7,9,
-                "GetData",
+                "GetDataasync",
                  @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs",
 };
 
