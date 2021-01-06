@@ -5,8 +5,8 @@ using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-    Scanf.CodeSmell.AsyncVoidAnalyzer,
-    Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
+Scanf.CodeSmell.AsyncVoidAnalyzer,
+Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 
 namespace Scanf.Test
 {
@@ -29,27 +29,27 @@ namespace Scanf.Test
                 @"SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs",
             };
 
-           yield return new object[]
-           {
+            yield return new object[]
+            {
                 @"SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs",
-           };
+            };
 
-           yield return new object[]
-           {
+            yield return new object[]
+            {
                 @"SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs",
-           };
+            };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value,string expectedCodeFixFile)
+        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value, string expectedCodeFixFile)
         {
             var inputSource = File.ReadAllText(inputFile);
             var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
             var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyCodeFixAsync(inputSource,expected, expectedCodeFixSource);
+            await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
