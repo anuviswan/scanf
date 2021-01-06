@@ -57,7 +57,7 @@ namespace Scanf.Test
             {
                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
                 7,9,
-                "// TODO : This should be caught",
+                "MethodWithAsyncVoid",
                  @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs",
             };
 
