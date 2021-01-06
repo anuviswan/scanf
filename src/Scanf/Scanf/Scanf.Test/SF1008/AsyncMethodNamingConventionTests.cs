@@ -8,10 +8,10 @@ using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 Scanf.NamingConvention.AsyncMethodAnalyzer,
 Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 
-namespace Scanf.Test.SF1008
+namespace Scanf.Test
 {
     [TestClass]
-    public class AsyncMethodNamingConventionTests
+    public class SF1008Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
@@ -50,18 +50,18 @@ namespace Scanf.Test.SF1008
         {
             yield return new object[]
             {
-                @"SF1005\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs",
+                @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs",
                 7,9,
                 "// TODO : This should be caught",
-                 @"SF1005\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_ReturnTask.cs",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_ReturnTask.cs",
             };
 
             yield return new object[]
 {
-                @"SF1005\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
+                @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
                 7,9,
                 "// TODO : This should be caught",
-                 @"SF1005\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_ReturnTask.cs",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_ReturnTask.cs",
 };
 
         }

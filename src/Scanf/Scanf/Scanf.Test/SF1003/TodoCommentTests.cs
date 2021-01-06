@@ -11,7 +11,7 @@ using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 namespace Scanf.Test
 {
     [TestClass]
-    public class TodoCommentsTests
+    public class SF1003Tests
     {
         //No diagnostics expected to show up
         [TestMethod]

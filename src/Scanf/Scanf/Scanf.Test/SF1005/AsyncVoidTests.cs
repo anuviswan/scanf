@@ -11,7 +11,7 @@ Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 namespace Scanf.Test
 {
     [TestClass]
-    public class AsyncVoidTests
+    public class SF1005Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
