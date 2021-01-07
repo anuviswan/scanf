@@ -5,13 +5,13 @@ using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-    Scanf.CodeSmell.TodoAnalyzer,
-    Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
+Scanf.CodeSmell.AsyncVoidAnalyzer,
+Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 
 namespace Scanf.Test
 {
     [TestClass]
-    public class SF1003Tests
+    public class SF1005Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
@@ -26,37 +26,41 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1003\TestData\NoDiagnostics\NoComments.cs"
+                @"SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs",
+            };
+
+            yield return new object[]
+            {
+                @"SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs",
+            };
+
+            yield return new object[]
+            {
+                @"SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs",
             };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputSrc, int line, int col,string value)
+        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value, string expectedCodeFixFile)
         {
-            var rule = VerifyCS.Diagnostic(TodoAnalyzer.DiagnosticId);
+            var inputSource = File.ReadAllText(inputFile);
+            var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
+            var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputSrc), expected);
+            await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
             yield return new object[]
             {
-                @"SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs",
-                11,13,
-                "// TODO : This should be caught"
+                @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
+                7,9,
+                "MethodWithAsyncVoid",
+                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs",
             };
 
-            yield return new object[]
-            {
-                @"SF1003\TestData\Diagnostics\MethodWithMultiLineComment.cs",
-                11,13,
-                @"/* This a ordinary comment
-             * TODO : This should be caught
-             * This should be ignored as well
-             */"
-            };
         }
     }
 }

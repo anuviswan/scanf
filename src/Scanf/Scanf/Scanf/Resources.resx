@@ -147,4 +147,13 @@
   <data name="SFA_1005_AnalyzerTitle" xml:space="preserve">
     <value>Async void method detected</value>
   </data>
+  <data name="SFA_1008_AnalyzerDescription" xml:space="preserve">
+    <value>Rename method with Async Suffix</value>
+  </data>
+  <data name="SFA_1008_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Rename method '{0}' with Async suffix</value>
+  </data>
+  <data name="SFA_1008_AnalyzerTitle" xml:space="preserve">
+    <value>Rename method with Async Suffix</value>
+  </data>
 </root>

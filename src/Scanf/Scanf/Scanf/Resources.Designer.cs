@@ -140,5 +140,32 @@ namespace Scanf {
                 return ResourceManager.GetString("SFA_1005_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename method with Async Suffix.
+        /// </summary>
+        internal static string SFA_1008_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1008_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename method &apos;{0}&apos; with Async suffix.
+        /// </summary>
+        internal static string SFA_1008_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1008_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename method with Async Suffix.
+        /// </summary>
+        internal static string SFA_1008_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1008_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }

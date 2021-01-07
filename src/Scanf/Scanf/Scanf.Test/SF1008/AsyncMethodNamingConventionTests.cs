@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Scanf.CodeSmell;
+using Scanf.NamingConvention;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-    Scanf.CodeSmell.AsyncVoidAnalyzer,
-    Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
+Scanf.NamingConvention.AsyncMethodAnalyzer,
+Scanf.NamingConvention.AsyncMethodCodeFixProvider>;
 
 namespace Scanf.Test
 {
     [TestClass]
-    public class AsyncVoidTests
+    public class SF1008Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
@@ -26,40 +25,43 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs",
+                @"SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs",
             };
 
-           yield return new object[]
-           {
-                @"SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs",
-           };
-
-           yield return new object[]
-           {
-                @"SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs",
-           };
+            yield return new object[]
+            {
+                @"SF1008\TestData\NoDiagnostics\AsyncMethodFollowingNamingConventions.cs",
+            };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value,string expectedCodeFixFile)
+        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value, string expectedCodeFixFile)
         {
             var inputSource = File.ReadAllText(inputFile);
             var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
-            var rule = VerifyCS.Diagnostic(AsyncVoidAnalyzer.DiagnosticId);
+            var rule = VerifyCS.Diagnostic(AsyncMethodAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyCodeFixAsync(inputSource,expected, expectedCodeFixSource);
+            await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
             yield return new object[]
             {
-                @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs",
+                @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs",
                 7,9,
-                "// TODO : This should be caught",
-                 @"SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs",
+                "GetData",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_RenameMethods.cs",
             };
+
+            yield return new object[]
+{
+                @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
+                7,9,
+                "GetDataasync",
+                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs",
+};
 
         }
     }
