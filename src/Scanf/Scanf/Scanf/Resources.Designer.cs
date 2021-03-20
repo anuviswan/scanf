@@ -61,6 +61,33 @@ namespace Scanf {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collection should be initialized with a size whenever possible.
+        /// </summary>
+        internal static string SFA_1001_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1001_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collection size is not initialized.
+        /// </summary>
+        internal static string SFA_1001_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1001_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collection size could be initialized.
+        /// </summary>
+        internal static string SFA_1001_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1001_AnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty method could be removed.
         /// </summary>
         internal static string SFA_1002_AnalyzerDescription {

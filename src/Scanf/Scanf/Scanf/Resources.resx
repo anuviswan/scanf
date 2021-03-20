@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SFA_1001_AnalyzerDescription" xml:space="preserve">
+    <value>Collection should be initialized with a size whenever possible</value>
+  </data>
+  <data name="SFA_1001_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Collection size is not initialized</value>
+  </data>
+  <data name="SFA_1001_AnalyzerTitle" xml:space="preserve">
+    <value>Collection size could be initialized</value>
+  </data>
   <data name="SFA_1002_AnalyzerDescription" xml:space="preserve">
     <value>Empty method could be removed</value>
     <comment>An optional longer localizable description of the diagnostic.</comment>
