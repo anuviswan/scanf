@@ -111,4 +111,8 @@
     <ProjectReference Include="..\Scanf\Scanf.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SF1001\TestData\NoDiagnostics\" />
+  </ItemGroup>
+
 </Project>
