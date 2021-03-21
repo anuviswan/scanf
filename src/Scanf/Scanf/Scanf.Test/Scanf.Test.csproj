@@ -115,4 +115,10 @@
     <Folder Include="SF1001\TestData\NoDiagnostics\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="SF1001\TestData\Diagnostics\CollectionWithSizeInitialized.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>

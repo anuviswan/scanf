@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.CodeSmell;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-Scanf.CodeSmell.AsyncVoidAnalyzer,
+Scanf.CodeSmell.InitializeCollectionAnalyzer,
 Scanf.CodeSmell.AsyncVoidCodeFixProvider>;
 
 
-namespace Scanf.Test.SF1001
+namespace Scanf.Test
 {
+    [TestClass]
     public class SF1001Tests
     {
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value, string expectedCodeFixFile)
+        public async Task CodeThatRequireFix(string inputFile)
         {
             var inputSource = File.ReadAllText(inputFile);
-            var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
+            var source = File.ReadAllText(inputFile);
+            await VerifyCS.VerifyAnalyzerAsync(source);
+            //var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
             var rule = VerifyCS.Diagnostic(InitializeCollectionAnalyzer.DiagnosticId);
-            var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
+            //var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
+            //await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
 
         private static IEnumerable<object[]> GetInvalidData()
