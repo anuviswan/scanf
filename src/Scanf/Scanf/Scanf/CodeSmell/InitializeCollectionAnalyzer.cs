@@ -29,16 +29,22 @@ namespace Scanf.CodeSmell
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze | GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            context.RegisterSyntaxNodeAction(AnalyzeMethod, SyntaxKind.VariableDeclaration);
+            context.RegisterSyntaxNodeAction(AnalyzeMethod, SyntaxKind.ObjectCreationExpression );
         }
 
         private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
         {
             var creation = (ObjectCreationExpressionSyntax)context.Node;
             var variableType = creation.Type as IdentifierNameSyntax;
-            if (variableType is null) return;
+            //if (variableType is null) return;
 
             var variableTypeInfo = context.SemanticModel.GetTypeInfo(context.Node);
+            var symbolTypeInfo = context.SemanticModel.GetSymbolInfo(context.Node);
+
+            
+            var r = context.Compilation.GetTypeByMetadataName("System.Collections.Generic.List`1");
+
+            var f = variableTypeInfo.Equals(r);
             //var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             //var isAsyncMethod = methodDeclaration.IsAsync();
             //var isEventHandler = methodDeclaration.IsEvantHandler(context);
