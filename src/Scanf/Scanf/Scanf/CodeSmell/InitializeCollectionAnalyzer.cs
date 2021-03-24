@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -36,31 +37,17 @@ namespace Scanf.CodeSmell
         {
             var creation = (ObjectCreationExpressionSyntax)context.Node;
             var variableType = creation.Type as IdentifierNameSyntax;
-            //if (variableType is null) return;
 
-            var variableTypeInfo = context.SemanticModel.GetTypeInfo(context.Node);
+            var typeInfo = context.SemanticModel.GetTypeInfo(context.Node);
             var symbolTypeInfo = context.SemanticModel.GetSymbolInfo(context.Node);
-
+            var isCollection = IsCollection(symbolTypeInfo.Symbol);
             
-            var r = context.Compilation.GetTypeByMetadataName("System.Collections.Generic.List`1");
+        }
 
-            var f = variableTypeInfo.Equals(r);
-            //var methodDeclaration = (MethodDeclarationSyntax)context.Node;
-            //var isAsyncMethod = methodDeclaration.IsAsync();
-            //var isEventHandler = methodDeclaration.IsEvantHandler(context);
-            //var returnType = methodDeclaration.ReturnType;
-
-
-            //if (returnType is PredefinedTypeSyntax && !isEventHandler)
-            //{
-            //    var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
-
-            //    if (isAsyncMethod && isReturnTypeVoid)
-            //    {
-            //        context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
-            //    }
-            //}
-
+        private bool IsCollection(ISymbol symbol)
+        {
+            // TODO: This has to be improved. Should check if IList/ICollection or similiar interfaces are implemented
+            return string.Equals("System.Collections.Generic.List<T>", symbol.ContainingType.OriginalDefinition.ToDisplayString());
         }
     }
 }
