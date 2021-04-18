@@ -36,6 +36,13 @@ namespace Scanf.CodeSmell
         private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
+            var returnType = methodDeclaration.ReturnType;
+            var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
+
+            if (isReturnTypeVoid)
+            {
+                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
+            }
             //var isAsyncMethod = methodDeclaration.IsAsync();
             //var isEventHandler = methodDeclaration.IsEventHandler(context);
             //var returnType = methodDeclaration.ReturnType;
