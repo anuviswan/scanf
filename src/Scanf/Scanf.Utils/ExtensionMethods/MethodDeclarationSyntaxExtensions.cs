@@ -17,6 +17,13 @@ namespace Scanf.Utils.ExtensionMethods
             return source.Modifiers.Any(SyntaxKind.AsyncKeyword); ;
         }
 
+        public static bool HasAttribute<TAttribute>(this MethodDeclarationSyntax source) where TAttribute:Attribute
+        {
+            var attributeName = typeof(TAttribute).Name.Replace("Attribute",string.Empty);
+            var attributes = source.AttributeLists;
+            return attributes.Any(x => x.Attributes.Any(c => c.Name.GetText().ToString() == attributeName));
+        }
+
 
         public static bool IsEventHandler(this MethodDeclarationSyntax source, SyntaxNodeAnalysisContext context)
         {

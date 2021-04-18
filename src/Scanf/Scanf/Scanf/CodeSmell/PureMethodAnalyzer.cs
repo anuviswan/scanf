@@ -40,8 +40,7 @@ namespace Scanf.CodeSmell
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var returnType = methodDeclaration.ReturnType;
             var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
-            var attributes = methodDeclaration.AttributeLists;
-            var hasPureAttribute = attributes.Any(x => x.Attributes.Any(c => c.Name.GetText().ToString() == nameof(PureAttribute)));
+            var hasPureAttribute = methodDeclaration.HasAttribute<PureAttribute>(); ;
 
             if (isReturnTypeVoid && hasPureAttribute)
             {

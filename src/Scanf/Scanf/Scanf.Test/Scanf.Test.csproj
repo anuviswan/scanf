@@ -16,6 +16,10 @@
     <Compile Remove="SF1003\TestData\Diagnostics\MethodWithMultiLineComment.cs" />
     <Compile Remove="SF1003\TestData\Diagnostics\MethodWithSingleLineComment.cs" />
     <Compile Remove="SF1003\TestData\NoDiagnostics\NoComments.cs" />
+    <Compile Remove="SF1004\TestData\Diagnostics\MethodWithPureAttribute.cs" />
+    <Compile Remove="SF1004\TestData\Diagnostics\PureMethodWithMultipleAttribute.cs" />
+    <Compile Remove="SF1004\TestData\NoDiagnostics\MethodWithOtherAttributes.cs" />
+    <Compile Remove="SF1004\TestData\NoDiagnostics\MethodWithPureAttributeWithReturnType.cs" />
     <Compile Remove="SF1004\TestData\NoDiagnostics\NoPureMethods.cs" />
     <Compile Remove="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid.cs" />
     <Compile Remove="SF1005\TestData\Diagnostics\AsyncMethodsWithVoid_Fix_ReturnTask.cs" />
@@ -57,6 +61,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1003\TestData\NoDiagnostics\NoComments.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1004\TestData\Diagnostics\MethodWithPureAttribute.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1004\TestData\Diagnostics\PureMethodWithMultipleAttribute.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1004\TestData\NoDiagnostics\MethodWithOtherAttributes.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1004\TestData\NoDiagnostics\MethodWithPureAttributeWithReturnType.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1004\TestData\NoDiagnostics\NoPureMethods.cs">
@@ -113,10 +129,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Scanf.CodeFixes\Scanf.CodeFixes.csproj" />
     <ProjectReference Include="..\Scanf\Scanf.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SF1004\TestData\Diagnostics\" />
   </ItemGroup>
 
 </Project>
