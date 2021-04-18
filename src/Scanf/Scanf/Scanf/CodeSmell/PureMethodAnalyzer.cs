@@ -7,7 +7,9 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
+using System.Linq;
 using Scanf.Utils.ExtensionMethods;
+using System.Diagnostics.Contracts;
 
 namespace Scanf.CodeSmell
 {
@@ -38,8 +40,10 @@ namespace Scanf.CodeSmell
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var returnType = methodDeclaration.ReturnType;
             var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
+            var attributes = methodDeclaration.AttributeLists;
+            var hasPureAttribute = attributes.Any(x => x.Attributes.Any(c => c.Name.GetText().ToString() == nameof(PureAttribute)));
 
-            if (isReturnTypeVoid)
+            if (isReturnTypeVoid && hasPureAttribute)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }
