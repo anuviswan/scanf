@@ -18,7 +18,7 @@ namespace Scanf.Utils.ExtensionMethods
         }
 
 
-        public static bool IsEvantHandler(this MethodDeclarationSyntax source, SyntaxNodeAnalysisContext context)
+        public static bool IsEventHandler(this MethodDeclarationSyntax source, SyntaxNodeAnalysisContext context)
         {
             // This method needs to be improvied further. It does a lame evaluation of whether the method is a possible event handler.
             foreach (var parameter in source.ParameterList.Parameters)

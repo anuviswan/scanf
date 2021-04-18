@@ -4,6 +4,7 @@
     {
         public const string AvoidEmptyMethodRule = "SF1002";
         public const string UnattendedTodoRule = "SF1003";
+        public const string PureMethodRule = "SF1004";
         public const string AsyncVoidRule = "SF1005";
         public const string AsyncMethodNamingConventionRule = "SF1008";
     }

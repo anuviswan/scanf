@@ -115,6 +115,33 @@ namespace Scanf {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pure Methods should not be void.
+        /// </summary>
+        internal static string SFA_1004_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1004_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pure method should not be void.
+        /// </summary>
+        internal static string SFA_1004_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1004_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pure Method does not return a value.
+        /// </summary>
+        internal static string SFA_1004_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1004_AnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Async method should not return void.
         /// </summary>
         internal static string SFA_1005_AnalyzerDescription {
