@@ -34,7 +34,7 @@ namespace Scanf.CodeSmell
         {
             var methodDeclaration = (MethodDeclarationSyntax)context.Node;
             var isAsyncMethod = methodDeclaration.IsAsync();
-            var isEventHandler = methodDeclaration.IsEvantHandler(context);
+            var isEventHandler = methodDeclaration.IsEventHandler(context);
             var returnType = methodDeclaration.ReturnType;
 
 

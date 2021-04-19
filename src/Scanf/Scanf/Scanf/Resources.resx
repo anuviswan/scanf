@@ -138,6 +138,15 @@
   <data name="SFA_1003_AnalyzerTitle" xml:space="preserve">
     <value>Unattended Todo</value>
   </data>
+  <data name="SFA_1004_AnalyzerDescription" xml:space="preserve">
+    <value>Pure Methods should not be void</value>
+  </data>
+  <data name="SFA_1004_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Pure method should not be void</value>
+  </data>
+  <data name="SFA_1004_AnalyzerTitle" xml:space="preserve">
+    <value>Pure Method does not return a value</value>
+  </data>
   <data name="SFA_1005_AnalyzerDescription" xml:space="preserve">
     <value>Async method should not return void</value>
   </data>

@@ -17,8 +17,15 @@ namespace Scanf.Utils.ExtensionMethods
             return source.Modifiers.Any(SyntaxKind.AsyncKeyword); ;
         }
 
+        public static bool HasAttribute<TAttribute>(this MethodDeclarationSyntax source) where TAttribute:Attribute
+        {
+            var attributeName = typeof(TAttribute).Name.Replace("Attribute",string.Empty);
+            var attributes = source.AttributeLists;
+            return attributes.Any(x => x.Attributes.Any(c => c.Name.GetText().ToString() == attributeName));
+        }
 
-        public static bool IsEvantHandler(this MethodDeclarationSyntax source, SyntaxNodeAnalysisContext context)
+
+        public static bool IsEventHandler(this MethodDeclarationSyntax source, SyntaxNodeAnalysisContext context)
         {
             // This method needs to be improvied further. It does a lame evaluation of whether the method is a possible event handler.
             foreach (var parameter in source.ParameterList.Parameters)
