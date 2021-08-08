@@ -1,0 +1,1 @@
+The portal development has been dropped/stalled in favour of Docfx based implementation
