@@ -23,6 +23,8 @@
       },
       {
         "files": [
+          "rules/**.md",
+          "rules/**/toc.yml",
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
