@@ -1,2 +1,6 @@
 - name: Introduction
   href: intro.md
+- name: Avoid Empty Methods
+  href: 1002.md
+- name: Async method should not return void
+  href: 1005.md
