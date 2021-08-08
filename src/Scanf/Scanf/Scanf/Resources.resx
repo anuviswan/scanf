@@ -165,4 +165,13 @@
   <data name="SFA_1008_AnalyzerTitle" xml:space="preserve">
     <value>Rename method with Async Suffix</value>
   </data>
+  <data name="SFA_1009_AnalyzerDescription" xml:space="preserve">
+    <value>Virtual Methods should not be invoked from the Constructor</value>
+  </data>
+  <data name="SFA_1009_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Virtual Methods should not be invoked from the Constructor</value>
+  </data>
+  <data name="SFA_1009_AnalyzerTitle" xml:space="preserve">
+    <value>Virtual Methods should not be invoked from the Constructor</value>
+  </data>
 </root>
