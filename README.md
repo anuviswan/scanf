@@ -4,9 +4,9 @@
 
 Current list of rules implemented are listed at https://anuviswan.github.io/scanf/ . Summary of the same is given below.
 
-| Code    | Description                          |       CodeFix |
-| ------- | ------------------------------------ | ------------: |
-| SF 1002 | Avoid Empty Methods                  |     Available |
-| SF 1003 | Pending TODO Item                    | Not Available |
-| SF 1004 | Pure methods should return value     | Not Available |
-| SF 1005 | Async Methods should not return void | Not Available |
+| Code    | Description                          | CodeFix Available  |
+| ------- | ------------------------------------ | -----------------: |
+| SF 1002 | Avoid Empty Methods                  | :heavy_check_mark: |
+| SF 1003 | Pending TODO Item                    | :x:                |
+| SF 1004 | Pure methods should return value     | :x:                |
+| SF 1005 | Async Methods should not return void | :x:                |
