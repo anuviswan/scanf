@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
 using System;
@@ -28,7 +29,13 @@ namespace Scanf.CodeSmell
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze | GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            context.RegisterSyntaxTreeAction(AnalyzeComment);
+            context.RegisterSyntaxNodeAction(AnalyzeConstructor,SyntaxKind.ConstructorDeclaration);
+        }
+
+        private void AnalyzeConstructor(SyntaxNodeAnalysisContext context)
+        {
+            var constructor = (ConstructorDeclarationSyntax)context.Node;
+
         }
 
         private void AnalyzeComment(SyntaxTreeAnalysisContext context)

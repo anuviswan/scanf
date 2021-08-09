@@ -33,7 +33,6 @@ namespace Scanf.Utils.ExtensionMethods
                 if(parameter.Type is IdentifierNameSyntax d && d.Identifier.Text.Equals(nameof(EventArgs)))
                 {
                     return true;
-                    
                 }
             }
             return false;

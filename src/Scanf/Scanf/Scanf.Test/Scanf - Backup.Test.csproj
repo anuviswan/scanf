@@ -32,8 +32,6 @@
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_RenameMethods.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\AsyncMethodFollowingNamingConventions.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
-    <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
-    <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -111,10 +109,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
-    <None Include="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
