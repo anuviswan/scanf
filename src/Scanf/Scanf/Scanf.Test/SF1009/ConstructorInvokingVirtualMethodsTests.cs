@@ -52,8 +52,8 @@ namespace Scanf.Test
             yield return new object[]
             {
                 @"SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs",
-                11,13,
-                "// TODO : This should be caught"
+                9,9,
+                "Foo()"
             };
 
         }

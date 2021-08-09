@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace TestSolution.Console
@@ -8,7 +9,12 @@ namespace TestSolution.Console
     {
         public SF1009()
         {
+            Foo();
+        }
 
+        public virtual void Foo()
+        {
+            Expression.Empty();
         }
     }
 }

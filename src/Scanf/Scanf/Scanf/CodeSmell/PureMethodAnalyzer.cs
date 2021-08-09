@@ -46,20 +46,6 @@ namespace Scanf.CodeSmell
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }
-            //var isAsyncMethod = methodDeclaration.IsAsync();
-            //var isEventHandler = methodDeclaration.IsEventHandler(context);
-            //var returnType = methodDeclaration.ReturnType;
-
-
-            //if (returnType is PredefinedTypeSyntax && !isEventHandler)
-            //{
-            //    var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;
-
-            //    if (isAsyncMethod && isReturnTypeVoid)
-            //    {
-            //        context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
-            //    }
-            //}
 
         }
     }
