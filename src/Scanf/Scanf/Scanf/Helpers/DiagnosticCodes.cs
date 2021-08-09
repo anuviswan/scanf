@@ -7,5 +7,6 @@
         public const string PureMethodRule = "SF1004";
         public const string AsyncVoidRule = "SF1005";
         public const string AsyncMethodNamingConventionRule = "SF1008";
+        public const string ConstructorInvokingVirtualMethodsRule = "SF1009";
     }
 }

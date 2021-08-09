@@ -32,7 +32,9 @@
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_RenameMethods.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\AsyncMethodFollowingNamingConventions.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
+    <Compile Remove="SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
+    <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
   </ItemGroup>
 
@@ -113,7 +115,15 @@
     <None Include="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
+    <None Include="SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -135,10 +145,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Scanf.CodeFixes\Scanf.CodeFixes.csproj" />
     <ProjectReference Include="..\Scanf\Scanf.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SF1009\TestData\Diagnostics\" />
   </ItemGroup>
 
 </Project>
