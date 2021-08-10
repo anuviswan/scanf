@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Scanf.CodeSmell;
+using Scanf.Bug;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-Scanf.CodeSmell.ConstructorInvokingVirtualMethodAnalyzer,
+Scanf.Bug.ConstructorInvokingVirtualMethodAnalyzer,
 Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
 
 namespace Scanf.Test

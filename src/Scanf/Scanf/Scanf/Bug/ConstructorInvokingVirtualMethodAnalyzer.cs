@@ -6,7 +6,7 @@ using Scanf.Helpers;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Scanf.CodeSmell
+namespace Scanf.Bug
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class ConstructorInvokingVirtualMethodAnalyzer:DiagnosticAnalyzer
