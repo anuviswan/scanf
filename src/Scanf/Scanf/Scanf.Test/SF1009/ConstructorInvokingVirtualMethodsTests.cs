@@ -36,6 +36,12 @@ namespace Scanf.Test
             {
                 @"SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs",
             };
+
+            yield return new object[]
+            {
+                @"SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs",
+            };
+            
         }
 
         //Diagnostic and CodeFix both triggered and checked for
@@ -43,7 +49,7 @@ namespace Scanf.Test
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
         public async Task CodeThatRequireFix(string inputFile, int line, int col, string value)
         {
-            var rule = VerifyCS.Diagnostic(TodoAnalyzer.DiagnosticId);
+            var rule = VerifyCS.Diagnostic(ConstructorInvokingVirtualMethodAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
             await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expected);
         }
@@ -52,7 +58,7 @@ namespace Scanf.Test
             yield return new object[]
             {
                 @"SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs",
-                9,9,
+                10,9,
                 "Foo()"
             };
 

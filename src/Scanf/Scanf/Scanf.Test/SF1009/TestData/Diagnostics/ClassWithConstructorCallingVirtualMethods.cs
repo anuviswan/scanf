@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Scanf.Test.SF1009.TestData.Diagnostics
@@ -12,12 +13,7 @@ namespace Scanf.Test.SF1009.TestData.Diagnostics
         }
         public virtual void Foo()
         {
-
-        }
-
-        public void Bar()
-        {
-
+            Expression.Empty();
         }
     }
 }

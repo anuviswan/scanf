@@ -36,9 +36,11 @@ namespace Scanf.CodeSmell
 
             if (methodInvocations is null) return;
 
-            var isVirtual = context.SemanticModel.GetSymbolInfo(methodInvocations).Symbol.IsVirtual;
+            var invokedMethod = context.SemanticModel.GetSymbolInfo(methodInvocations).Symbol;
+            var isFromSameClass = invokedMethod.ContainingType.Name == constructor.Identifier.Text;
+            var isVirtual = invokedMethod.IsVirtual;
 
-            if (isVirtual)
+            if (isFromSameClass && isVirtual)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(),constructor.Identifier.Value));
             }

@@ -35,6 +35,7 @@
     <Compile Remove="SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs" />
+    <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
   </ItemGroup>
 
@@ -122,6 +123,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs">
