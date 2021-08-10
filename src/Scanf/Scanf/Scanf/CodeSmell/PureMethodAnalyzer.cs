@@ -46,7 +46,6 @@ namespace Scanf.CodeSmell
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), methodDeclaration.Identifier.Value));
             }
-
         }
     }
 }
