@@ -1,6 +1,6 @@
 # SCANF
 
-**SCANF** (_**S**tatic **C**ode **A**nalysis a**N**d **F**ixes_) is a code analysis package for Rosylyn. The development is still in early stages and this document would be updated soon.
+**SCANF** (_**S**tatic **C**ode **A**nalysis a**N**d **F**ixes_) is a code analysis package build using .Net Compiler SDK. The development is still in early stages and this document would be updated soon.
 
 ## What is a Static Code analyzer
 
