@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Test", "Scanf\Scanf.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Vsix", "Scanf\Scanf.Vsix\Scanf.Vsix.csproj", "{6AD6A10E-6A8C-4980-8810-CAEF995D5520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scanf.Utils", "Scanf.Utils\Scanf.Utils.csproj", "{F021AB84-A40B-4F1F-B800-C25FE28B368C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scanf.Utils", "Scanf.Utils\Scanf.Utils.csproj", "{F021AB84-A40B-4F1F-B800-C25FE28B368C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

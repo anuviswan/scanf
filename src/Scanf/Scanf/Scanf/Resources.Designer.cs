@@ -194,5 +194,32 @@ namespace Scanf {
                 return ResourceManager.GetString("SFA_1008_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Virtual Methods should not be invoked from the Constructor.
+        /// </summary>
+        internal static string SFA_1009_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1009_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Virtual Methods should not be invoked from the Constructor.
+        /// </summary>
+        internal static string SFA_1009_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1009_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Virtual Methods should not be invoked from the Constructor.
+        /// </summary>
+        internal static string SFA_1009_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1009_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }
