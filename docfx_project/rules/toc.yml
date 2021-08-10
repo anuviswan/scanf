@@ -8,3 +8,7 @@
   href: 1004.md
 - name: Async method should not return void
   href: 1005.md
+- name: Async method should be named with a suffix `Async`
+  href: 1008.md
+- name: Constructor should not invoke any virtual methods
+  href: 1009.md
