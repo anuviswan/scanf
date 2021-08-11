@@ -6,7 +6,7 @@ using Scanf.Helpers;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Scanf.CodeSmell
+namespace Scanf.Bug
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class ConstructorInvokingVirtualMethodAnalyzer:DiagnosticAnalyzer
@@ -32,18 +32,23 @@ namespace Scanf.CodeSmell
         private void AnalyzeConstructor(SyntaxNodeAnalysisContext context)
         {
             var constructor = (ConstructorDeclarationSyntax)context.Node;
-            var methodInvocations = constructor.DescendantNodes().OfType<InvocationExpressionSyntax>().FirstOrDefault();
+            var methodInvocations = constructor.DescendantNodes().OfType<InvocationExpressionSyntax>();
 
-            if (methodInvocations is null) return;
-
-            var invokedMethod = context.SemanticModel.GetSymbolInfo(methodInvocations).Symbol;
-            var isFromSameClass = invokedMethod.ContainingType.Name == constructor.Identifier.Text;
-            var isVirtual = invokedMethod.IsVirtual;
-
-            if (isFromSameClass && isVirtual)
+            foreach(var methodInvocation in methodInvocations)
             {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(),constructor.Identifier.Value));
+                var invokedMethod = context.SemanticModel.GetSymbolInfo(methodInvocation).Symbol;
+                var isFromSameClass = invokedMethod.ContainingType.Name == constructor.Identifier.Text;
+                var isVirtual = invokedMethod.IsVirtual;
+
+                if (isFromSameClass && isVirtual)
+                {
+                    
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, methodInvocation.GetLocation(), invokedMethod.Name));
+                }
             }
+            //if (methodInvocations is null) return;
+
+            
         }
     }
 }

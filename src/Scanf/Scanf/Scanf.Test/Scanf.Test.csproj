@@ -33,6 +33,7 @@
     <Compile Remove="SF1008\TestData\NoDiagnostics\AsyncMethodFollowingNamingConventions.cs" />
     <Compile Remove="SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
     <Compile Remove="SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs" />
+    <Compile Remove="SF1009\TestData\Diagnostics\ClassWithConstructorWithTwoMethodCalls.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs" />
@@ -117,6 +118,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1009\TestData\Diagnostics\ClassWithConstructorWithTwoMethodCalls.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoMethodCalls.cs">
