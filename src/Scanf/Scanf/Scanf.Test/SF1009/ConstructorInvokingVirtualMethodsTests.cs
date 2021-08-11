@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.CodeAnalysis.Testing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.Bug;
+using Scanf.Test.Utils;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -47,19 +49,36 @@ namespace Scanf.Test
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, int line, int col, string value)
+        public async Task CodeThatRequireFix(string inputFile, params DiagnosticResultWrapper[] expectedResult)
         {
-            var rule = VerifyCS.Diagnostic(ConstructorInvokingVirtualMethodAnalyzer.DiagnosticId);
-            var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
-            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expected);
+            var expectedDiagnostics = new List<DiagnosticResult>();
+            foreach(var expected in expectedResult)
+            {
+                var rule = VerifyCS.Diagnostic(ConstructorInvokingVirtualMethodAnalyzer.DiagnosticId);
+                expectedDiagnostics.Add(rule.WithLocation(expected.Line, expected.Column).WithArguments(expected.Value.Trim()));
+            }
+            
+            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expectedDiagnostics.ToArray());
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
             yield return new object[]
             {
                 @"SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs",
-                10,9,
-                "Foo()"
+                new[]
+                {
+                    new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "Foo" }
+                }
+            };
+
+            yield return new object[]
+            {
+                @"SF1009\TestData\Diagnostics\ClassWithConstructorWithTwoMethodCalls.cs",
+                new[]
+                {
+                    new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "Foo" },
+                    new DiagnosticResultWrapper{ Line = 10, Column= 13, Value = "Bar" }
+                }
             };
 
         }

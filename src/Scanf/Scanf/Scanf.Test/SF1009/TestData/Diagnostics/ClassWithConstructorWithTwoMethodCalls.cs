@@ -2,13 +2,19 @@
 
 namespace Scanf.Test.SF1009.TestData.Diagnostics
 {
-    public class ClassWithConstructorCallingVirtualMethods
+    public class ClassWithConstructorWithTwoMethodCalls
     {
-        public ClassWithConstructorCallingVirtualMethods()
+        public ClassWithConstructorWithTwoMethodCalls()
         {
+            Bar();
             Foo();
         }
         public virtual void Foo()
+        {
+            Expression.Empty();
+        }
+
+        public virtual void Bar()
         {
             Expression.Empty();
         }
