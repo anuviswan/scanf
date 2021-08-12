@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Scanf.CodeSmell;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Scanf.NamingConvention;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
-Scanf.NamingConvention.AsyncMethodAnalyzer,
+Scanf.CodeSmell.UseAnyWhenPossibleInsteadOfCountAnalyzer,
 Scanf.NamingConvention.AsyncMethodCodeFixProvider>;
 
 namespace Scanf.Test
 {
     [TestClass]
-    public class SF1008Tests
+    public class SF1006Tests
     {
         //No diagnostics expected to show up
         [TestMethod]
@@ -25,13 +27,9 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1008\TestData\NoDiagnostics\WithNoAsyncMethods.cs",
+                @"SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs",
             };
 
-            yield return new object[]
-            {
-                @"SF1008\TestData\NoDiagnostics\AsyncMethodFollowingNamingConventions.cs",
-            };
         }
 
         //Diagnostic and CodeFix both triggered and checked for
@@ -41,7 +39,7 @@ namespace Scanf.Test
         {
             var inputSource = File.ReadAllText(inputFile);
             var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
-            var rule = VerifyCS.Diagnostic(AsyncMethodAnalyzer.DiagnosticId);
+            var rule = VerifyCS.Diagnostic(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId);
             var expected = rule.WithLocation(line, col).WithArguments(value.Trim());
             await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
@@ -49,18 +47,10 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs",
+                @"SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs",
                 7,9,
                 "GetData",
-                 @"SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions_Fix_RenameMethods.cs",
-            };
-
-            yield return new object[]
-            {
-                @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
-                7,9,
-                "GetDataasync",
-                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs",
+                 @"SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs",
             };
 
         }

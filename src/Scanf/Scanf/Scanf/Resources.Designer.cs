@@ -169,6 +169,33 @@ namespace Scanf {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use Any() instead of Count() when possible.
+        /// </summary>
+        internal static string SFA_1006_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1006_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Any() instead of Count() when possible.
+        /// </summary>
+        internal static string SFA_1006_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1006_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Any() instead of Count() when possible.
+        /// </summary>
+        internal static string SFA_1006_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1006_AnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename method with Async Suffix.
         /// </summary>
         internal static string SFA_1008_AnalyzerDescription {

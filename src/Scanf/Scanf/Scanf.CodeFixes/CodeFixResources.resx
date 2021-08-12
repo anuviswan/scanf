@@ -124,6 +124,9 @@
   <data name="CF_1005_Title_ReturnTask" xml:space="preserve">
     <value>Return Task</value>
   </data>
+  <data name="CF_1006_Title_UseAny" xml:space="preserve">
+    <value>Use Any() instead of Count</value>
+  </data>
   <data name="CF_1008_Title_RenameMethod" xml:space="preserve">
     <value>Rename Method with suffix 'Async'</value>
   </data>

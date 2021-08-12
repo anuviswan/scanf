@@ -26,6 +26,8 @@
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
+    <Compile Remove="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs" />
+    <Compile Remove="SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithoutNamingConventions.cs" />
@@ -97,6 +99,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs">
