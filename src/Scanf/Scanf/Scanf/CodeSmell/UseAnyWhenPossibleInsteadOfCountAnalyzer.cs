@@ -7,6 +7,7 @@ using Scanf.Utils.ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Text;
 
 namespace Scanf.CodeSmell
@@ -35,8 +36,46 @@ namespace Scanf.CodeSmell
 
         private void AnalyzeIfCondition(SyntaxNodeAnalysisContext context)
         {
+            var model = context.SemanticModel;
             var ifStatementSyntax = (IfStatementSyntax)context.Node;
             var condition = ifStatementSyntax.Condition;
+            if(condition is BinaryExpressionSyntax binaryExpression)
+            {
+                var invocationExpressions = TraverseConditions(binaryExpression);
+
+                foreach(var expression in invocationExpressions)
+                {
+                    var symbol = model.GetSymbolInfo(expression).Symbol;
+                    if((symbol.ContainingType.Name == nameof(Enumerable)) && symbol.Name == nameof(Enumerable.Count))
+                    {
+                        context.ReportDiagnostic(Diagnostic.Create(Rule, expression.GetLocation(), expression.Expression.ToString()));
+                    }
+                }
+                
+            }
+        }
+
+        private IEnumerable<InvocationExpressionSyntax> TraverseConditions(BinaryExpressionSyntax binaryExpression)
+        {
+            if (binaryExpression.Left is BinaryExpressionSyntax leftBinary)
+            {
+                foreach (var expression in TraverseConditions(leftBinary)) yield return expression;
+            }
+
+            if (binaryExpression.Right is BinaryExpressionSyntax rightBinary)
+            {
+                foreach (var expression in TraverseConditions(rightBinary)) yield return expression;
+            }
+
+            if (binaryExpression.Left is InvocationExpressionSyntax invocationLeft)
+            {
+                yield return invocationLeft;
+            }
+
+            if (binaryExpression.Right is InvocationExpressionSyntax invocationRight)
+            {
+                yield return invocationRight;
+            }
         }
     }
 }
