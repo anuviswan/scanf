@@ -26,7 +26,10 @@
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncMethodsWithTaskReturnType.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\AsyncVoidForEventHandlers.cs" />
     <Compile Remove="SF1005\TestData\NoDiagnostics\WithNoAsyncMethods.cs" />
+    <Compile Remove="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall.cs" />
+    <Compile Remove="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs" />
     <Compile Remove="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs" />
+    <Compile Remove="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall_Fix_UseAny.cs" />
     <Compile Remove="SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs" />
@@ -40,6 +43,15 @@
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -102,6 +114,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall_Fix_UseAny.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs">

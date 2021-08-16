@@ -2,13 +2,13 @@
 
 namespace Scanf.Test
 {
-    public class MethodWithSingleIfConditionWithCountCall
+    public class MethodWithMultipleIfConditionWithCountCall
     {
         public void Foo()
         {
             var collection = Enumerable.Range(1, 100);
 
-            if (collection.Count() >= 0)
+            if (collection.Any() && collection.Count() == 0)
             {
 
             }

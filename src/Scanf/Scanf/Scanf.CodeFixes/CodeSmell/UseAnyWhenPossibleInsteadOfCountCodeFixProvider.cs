@@ -17,7 +17,7 @@ namespace Scanf.CodeSmell
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UseAnyWhenPossibleInsteadOfCountCodeFixProvider)), Shared]
     public class UseAnyWhenPossibleInsteadOfCountCodeFixProvider : CodeFixProvider
     {
-        public override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(AsyncVoidAnalyzer.DiagnosticId); 
+        public override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId); 
 
         public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
