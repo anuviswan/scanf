@@ -6,6 +6,7 @@
         public const string UnattendedTodoRule = "SF1003";
         public const string PureMethodRule = "SF1004";
         public const string AsyncVoidRule = "SF1005";
+        public const string UseAnyWhenPossibleInsteadOfCountRule = "SF1006";
         public const string AsyncMethodNamingConventionRule = "SF1008";
         public const string ConstructorInvokingVirtualMethodsRule = "SF1009";
     }

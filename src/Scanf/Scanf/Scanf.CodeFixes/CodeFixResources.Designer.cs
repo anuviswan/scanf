@@ -79,6 +79,15 @@ namespace Scanf {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use Any() instead of Count.
+        /// </summary>
+        internal static string CF_1006_Title_UseAny {
+            get {
+                return ResourceManager.GetString("CF_1006_Title_UseAny", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename Method with suffix &apos;Async&apos;.
         /// </summary>
         internal static string CF_1008_Title_RenameMethod {

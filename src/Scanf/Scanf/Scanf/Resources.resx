@@ -156,6 +156,15 @@
   <data name="SFA_1005_AnalyzerTitle" xml:space="preserve">
     <value>Async void method detected</value>
   </data>
+  <data name="SFA_1006_AnalyzerDescription" xml:space="preserve">
+    <value>Use Any() instead of Count() when possible</value>
+  </data>
+  <data name="SFA_1006_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Use Any() instead of Count() when possible</value>
+  </data>
+  <data name="SFA_1006_AnalyzerTitle" xml:space="preserve">
+    <value>Use Any() instead of Count() when possible</value>
+  </data>
   <data name="SFA_1008_AnalyzerDescription" xml:space="preserve">
     <value>Rename method with Async Suffix</value>
   </data>

@@ -56,12 +56,12 @@ namespace Scanf.Test
             };
 
             yield return new object[]
-{
+            {
                 @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs",
                 7,9,
                 "GetDataasync",
                  @"SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs",
-};
+            };
 
         }
     }
