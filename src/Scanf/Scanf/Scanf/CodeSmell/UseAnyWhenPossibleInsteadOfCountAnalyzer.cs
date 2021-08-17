@@ -38,7 +38,7 @@ namespace Scanf.CodeSmell
         private void AnalyzeBinaryExpression(SyntaxNodeAnalysisContext context)
         {
             var model = context.SemanticModel;
-            if(context.Node is BinaryExpressionSyntax binaryExpression)
+            if(context.Node is BinaryExpressionSyntax binaryExpression && IsConditionConstantZero(binaryExpression))
             {
                 var invocationExpressions = TraverseConditions(binaryExpression);
 
@@ -54,18 +54,26 @@ namespace Scanf.CodeSmell
             }
         }
 
+        private bool IsConditionConstantZero(BinaryExpressionSyntax binaryExpression)
+        {
+            if (binaryExpression.Left  is LiteralExpressionSyntax literalExprLeft 
+                && literalExprLeft.Kind() == SyntaxKind.NumericLiteralExpression)
+            {
+                var token = literalExprLeft.DescendantTokens().FirstOrDefault();
+                return token.Text == "0";
+            }
+
+            if (binaryExpression.Right is LiteralExpressionSyntax literalExprRight
+                && literalExprRight.Kind() == SyntaxKind.NumericLiteralExpression)
+            {
+                var token = literalExprRight.DescendantTokens().FirstOrDefault();
+                return token.Text == "0";
+            }
+            return false;
+        }
+
         private IEnumerable<InvocationExpressionSyntax> TraverseConditions(BinaryExpressionSyntax binaryExpression)
         {
-            if (binaryExpression.Left is BinaryExpressionSyntax leftBinary)
-            {
-                foreach (var expression in TraverseConditions(leftBinary)) yield return expression;
-            }
-
-            if (binaryExpression.Right is BinaryExpressionSyntax rightBinary)
-            {
-                foreach (var expression in TraverseConditions(rightBinary)) yield return expression;
-            }
-
             if (binaryExpression.Left is InvocationExpressionSyntax invocationLeft)
             {
                 yield return invocationLeft;
