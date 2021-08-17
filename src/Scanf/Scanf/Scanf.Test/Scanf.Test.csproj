@@ -30,6 +30,7 @@
     <Compile Remove="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs" />
     <Compile Remove="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall.cs" />
     <Compile Remove="SF1006\TestData\Diagnostics\MethodWithSingleIfConditionWithCountCall_Fix_UseAny.cs" />
+    <Compile Remove="SF1006\TestData\NoDiagnostics\MethodWithCountExpressionEqualsNonZero.cs" />
     <Compile Remove="SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix.cs" />
     <Compile Remove="SF1008\TestData\Diagnostics\AsyncMethodWithCaseInsensitiveSuffix_Fix_RenameMethods.cs" />
@@ -50,6 +51,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1006\TestData\NoDiagnostics\MethodWithCountExpressionEqualsNonZero.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -6,9 +6,10 @@ namespace Scanf.Test
     {
         public void Foo()
         {
-            var collection = Enumerable.Range(1, 100);
+            var collection1 = Enumerable.Range(1, 100);
+            var collection2 = Enumerable.Range(1, 100);
 
-            if (collection.Any() && collection.Count() == 0)
+            if (collection1.Any() && !collection2.Any())
             {
 
             }

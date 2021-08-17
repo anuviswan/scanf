@@ -32,6 +32,11 @@ namespace Scanf.Test
                 @"SF1006\TestData\NoDiagnostics\MethodWithNoIfCondition.cs",
             };
 
+            yield return new object[]
+           {
+                @"SF1006\TestData\NoDiagnostics\MethodWithCountExpressionEqualsNonZero.cs",
+           };
+
         }
 
         //Diagnostic and CodeFix both triggered and checked for
@@ -62,7 +67,6 @@ namespace Scanf.Test
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
-
 
             yield return new object[]
             {
