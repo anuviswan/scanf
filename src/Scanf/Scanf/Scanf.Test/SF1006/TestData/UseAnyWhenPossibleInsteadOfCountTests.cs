@@ -52,17 +52,17 @@ namespace Scanf.Test
             //var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
 
             //var expectedCollection = new List<DiagnosticResult>();
-            //foreach(var expected in expectedResults)
+            //foreach (var expected in expectedResults)
             //{
             //    var rule = VerifyCS.Diagnostic(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId);
             //    expectedCollection.Add(rule.WithLocation(expected.Line, expected.Column).WithArguments(expected.Value.Trim()));
             //}
-            
+
             //await VerifyCS.VerifyCodeFixAsync(inputSource, expectedCollection.ToArray(), expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
-            
+
 
             yield return new object[]
             {
@@ -95,19 +95,10 @@ namespace Scanf.Test
                         Line = 11,
                         Column = 44,
                         Value = "Count"
-                    }
+                    },
                 },
                 @"SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs",
             };
-
-
-            //yield return new object[]
-            //{
-            //    @"SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall.cs",
-            //    11,17,
-            //    "GetData",
-            //     @"SF1006\TestData\Diagnostics\MethodWithMultipleIfConditionWithCountCall_Fix_UseAny.cs",
-            //};
 
         }
     }

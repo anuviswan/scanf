@@ -31,15 +31,14 @@ namespace Scanf.CodeSmell
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze | GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            context.RegisterSyntaxNodeAction(AnalyzeIfCondition, SyntaxKind.IfStatement);
+            context.RegisterSyntaxNodeAction(AnalyzeBinaryExpression, SyntaxKind.GreaterThanOrEqualExpression);
+            context.RegisterSyntaxNodeAction(AnalyzeBinaryExpression, SyntaxKind.EqualsExpression);
         }
 
-        private void AnalyzeIfCondition(SyntaxNodeAnalysisContext context)
+        private void AnalyzeBinaryExpression(SyntaxNodeAnalysisContext context)
         {
             var model = context.SemanticModel;
-            var ifStatementSyntax = (IfStatementSyntax)context.Node;
-            var condition = ifStatementSyntax.Condition;
-            if(condition is BinaryExpressionSyntax binaryExpression)
+            if(context.Node is BinaryExpressionSyntax binaryExpression)
             {
                 var invocationExpressions = TraverseConditions(binaryExpression);
 

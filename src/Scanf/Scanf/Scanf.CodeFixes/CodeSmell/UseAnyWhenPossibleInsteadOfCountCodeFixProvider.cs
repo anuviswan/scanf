@@ -26,7 +26,7 @@ namespace Scanf.CodeSmell
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
-            var ifStatements = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<IfStatementSyntax>().First();
+            var ifStatements = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<InvocationExpressionSyntax>().First();
 
             context.RegisterCodeFix(
                 CodeAction.Create(
@@ -36,9 +36,9 @@ namespace Scanf.CodeSmell
                 diagnostic);
         }
 
-        private async Task<Document> UseAnyWhenPossible(Document document, IfStatementSyntax ifCondition, CancellationToken cancellationToken)
+        private async Task<Document> UseAnyWhenPossible(Document document, InvocationExpressionSyntax expression, CancellationToken cancellationToken)
         {
-            var originalReturnType = ifCondition.Condition;
+            var originalExpression = expression;
             //var newReturnType = SyntaxFactory.ParseTypeName(nameof(Task)).WithTrailingTrivia(originalReturnType.GetTrailingTrivia());
             //var newMethodDeclaration = ifCondition.WithReturnType(newReturnType);
 
