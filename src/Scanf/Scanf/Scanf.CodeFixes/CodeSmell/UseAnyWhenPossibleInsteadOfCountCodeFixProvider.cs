@@ -3,12 +3,9 @@ using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Composition;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,7 +14,12 @@ namespace Scanf.CodeSmell
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UseAnyWhenPossibleInsteadOfCountCodeFixProvider)), Shared]
     public class UseAnyWhenPossibleInsteadOfCountCodeFixProvider : CodeFixProvider
     {
-        public override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId); 
+        public override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId);
+
+        public sealed override FixAllProvider GetFixAllProvider()
+        {
+            return WellKnownFixAllProviders.BatchFixer;
+        }
 
         public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
@@ -26,48 +28,44 @@ namespace Scanf.CodeSmell
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
-            var ifStatements = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<InvocationExpressionSyntax>().First();
+            var binaryExpression = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<BinaryExpressionSyntax>().First();
 
             context.RegisterCodeFix(
                 CodeAction.Create(
                     title: CodeFixResources.CF_1006_Title_UseAny,
-                    createChangedDocument: c => UseAnyWhenPossible(context.Document, ifStatements, c),
+                    createChangedDocument: c => UseAnyWhenPossible(context.Document, binaryExpression, c),
                     equivalenceKey: nameof(CodeFixResources.CF_1006_Title_UseAny)),
                 diagnostic);
         }
 
-        private async Task<Document> UseAnyWhenPossible(Document document, InvocationExpressionSyntax expression, CancellationToken cancellationToken)
+        private async Task<Document> UseAnyWhenPossible(Document document, BinaryExpressionSyntax expression, CancellationToken cancellationToken)
         {
             var originalExpression = expression;
-            //var newReturnType = SyntaxFactory.ParseTypeName(nameof(Task)).WithTrailingTrivia(originalReturnType.GetTrailingTrivia());
-            //var newMethodDeclaration = ifCondition.WithReturnType(newReturnType);
+            var invocation = TraverseConditions(originalExpression);
+            var countInvocation = (invocation.Expression as MemberAccessExpressionSyntax);
+            var collectionInstanceName = (countInvocation.Expression as IdentifierNameSyntax).Identifier.Text;
 
+            var expressionWithAny = SyntaxFactory.ParseExpression($"{(expression.Kind() == SyntaxKind.EqualsExpression?"!":string.Empty)}{collectionInstanceName}.Any()")
+                .WithLeadingTrivia(originalExpression.GetLeadingTrivia())
+                .WithTrailingTrivia(originalExpression.GetTrailingTrivia());
+            
             var oldRoot = await document.GetSyntaxRootAsync(cancellationToken);
-           // var newRoot = oldRoot.ReplaceNode(ifCondition, newMethodDeclaration);
-            return document.WithSyntaxRoot(oldRoot);
+            var newRoot = oldRoot.ReplaceNode(originalExpression, expressionWithAny);
+            return document.WithSyntaxRoot(newRoot);
         }
 
-        private IEnumerable<InvocationExpressionSyntax> TraverseConditions(BinaryExpressionSyntax binaryExpression)
+        private InvocationExpressionSyntax TraverseConditions(BinaryExpressionSyntax binaryExpression)
         {
-            if (binaryExpression.Left is BinaryExpressionSyntax leftBinary)
-            {
-                foreach (var expression in TraverseConditions(leftBinary)) yield return expression;
-            }
-
-            if (binaryExpression.Right is BinaryExpressionSyntax rightBinary)
-            {
-                foreach (var expression in TraverseConditions(rightBinary)) yield return expression;
-            }
-
             if (binaryExpression.Left is InvocationExpressionSyntax invocationLeft)
             {
-                yield return invocationLeft;
+                return invocationLeft;
             }
 
             if (binaryExpression.Right is InvocationExpressionSyntax invocationRight)
             {
-                yield return invocationRight;
+                return invocationRight;
             }
+            return null;
         }
     }
 

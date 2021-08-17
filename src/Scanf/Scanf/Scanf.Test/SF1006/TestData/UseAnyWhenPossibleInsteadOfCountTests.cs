@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 Scanf.CodeSmell.UseAnyWhenPossibleInsteadOfCountAnalyzer,
-Scanf.NamingConvention.AsyncMethodCodeFixProvider>;
+Scanf.CodeSmell.UseAnyWhenPossibleInsteadOfCountCodeFixProvider>;
 
 namespace Scanf.Test
 {
@@ -42,7 +42,25 @@ namespace Scanf.Test
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, DiagnosticResultWrapper []expectedResults, string expectedCodeFixFile)
+        public async Task CodeFixTests(string inputFile, DiagnosticResultWrapper []expectedResults, string expectedCodeFixFile)
+        {
+            var inputSource = File.ReadAllText(inputFile);
+            var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
+
+            var expectedCollection = new List<DiagnosticResult>();
+            foreach (var expected in expectedResults)
+            {
+                var rule = VerifyCS.Diagnostic(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId);
+                expectedCollection.Add(rule.WithLocation(expected.Line, expected.Column).WithArguments(expected.Value.Trim()));
+            }
+
+            await VerifyCS.VerifyCodeFixAsync(inputSource, expectedCollection.ToArray(), expectedCodeFixSource);
+        }
+
+        //Diagnostic and CodeFix both triggered and checked for
+        [TestMethod]
+        [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
+        public async Task DiagnosticsFoundTests(string inputFile, DiagnosticResultWrapper[] expectedResults, string expectedCodeFixFile)
         {
             var expectedDiagnostics = new List<DiagnosticResult>();
             foreach (var expected in expectedResults)
@@ -53,17 +71,7 @@ namespace Scanf.Test
 
             await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expectedDiagnostics.ToArray());
 
-            //var inputSource = File.ReadAllText(inputFile);
-            //var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
 
-            //var expectedCollection = new List<DiagnosticResult>();
-            //foreach (var expected in expectedResults)
-            //{
-            //    var rule = VerifyCS.Diagnostic(UseAnyWhenPossibleInsteadOfCountAnalyzer.DiagnosticId);
-            //    expectedCollection.Add(rule.WithLocation(expected.Line, expected.Column).WithArguments(expected.Value.Trim()));
-            //}
-
-            //await VerifyCS.VerifyCodeFixAsync(inputSource, expectedCollection.ToArray(), expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
@@ -90,13 +98,13 @@ namespace Scanf.Test
                 {
                     new DiagnosticResultWrapper
                     {
-                        Line = 11,
+                        Line = 12,
                         Column = 17,
                         Value = "Count"
                     },
                     new DiagnosticResultWrapper
                     {
-                        Line = 11,
+                        Line = 12,
                         Column = 44,
                         Value = "Count"
                     },
