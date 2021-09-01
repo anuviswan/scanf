@@ -221,5 +221,32 @@ namespace Scanf {
                 return ResourceManager.GetString("SFA_1009_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Exceptions should be public.
+        /// </summary>
+        internal static string SFA_1010_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1010_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Exceptions should be public.
+        /// </summary>
+        internal static string SFA_1010_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1010_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Exceptions should be public.
+        /// </summary>
+        internal static string SFA_1010_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1010_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }

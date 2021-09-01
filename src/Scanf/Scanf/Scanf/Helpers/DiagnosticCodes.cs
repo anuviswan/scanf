@@ -8,5 +8,6 @@
         public const string AsyncVoidRule = "SF1005";
         public const string AsyncMethodNamingConventionRule = "SF1008";
         public const string ConstructorInvokingVirtualMethodsRule = "SF1009";
+        public const string CustomExceptionsShouldBePublic = "SF1010";
     }
 }
