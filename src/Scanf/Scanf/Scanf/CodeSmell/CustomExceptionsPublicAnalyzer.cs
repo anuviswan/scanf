@@ -5,6 +5,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
 using Scanf.Utils.ExtensionMethods;
+using Microsoft.CodeAnalysis.CSharp;
+using System.Collections.Generic;
 
 namespace Scanf.CodeSmell
 {
@@ -27,14 +29,38 @@ namespace Scanf.CodeSmell
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze | GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            context.RegisterSyntaxNodeAction(AnalyzeMethod, SyntaxKind.ClassDeclaration);
+            context.RegisterSyntaxNodeAction(AnalyzerExceptionClass,SyntaxKind.ClassDeclaration);
         }
 
-        private void AnalyzeMethod(SyntaxNodeAnalysisContext context)
+        private void AnalyzerExceptionClass(SyntaxNodeAnalysisContext context)
         {
             var classDeclaration = (ClassDeclarationSyntax)context.Node;
-            
+            var symbol = context.SemanticModel.GetDeclaredSymbol(classDeclaration);
 
+            if (InheritsFrom<System.Exception>(symbol))
+            {
+                var accessModifier = GetAccessModifier(classDeclaration);
+                if(accessModifier != SyntaxKind.PublicKeyword)
+                {
+                    var index = classDeclaration.Modifiers.IndexOf(accessModifier);
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, classDeclaration.Modifiers[index].GetLocation(), classDeclaration.Modifiers.IndexOf(SyntaxKind.PrivateKeyword)));
+                }
+                
+            }
+        }
+
+        private SyntaxKind GetAccessModifier(ClassDeclarationSyntax classDeclaration)
+        {
+            var modifiers = new List<SyntaxKind> { SyntaxKind.PublicKeyword, SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword };
+            foreach(var modifer in classDeclaration.Modifiers)
+            {
+                if (modifiers.Contains(modifer.Kind()))
+                {
+                    return modifer.Kind();
+                }
+            }
+            return SyntaxKind.PrivateKeyword;
+              
         }
         private bool InheritsFrom<T>(INamedTypeSymbol symbol)
         {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Scanf.Bug;
+using Scanf.CodeSmell;
 using Scanf.Test.Utils;
 using System.Collections.Generic;
 using System.IO;
@@ -34,43 +34,31 @@ namespace Scanf.Test
                 @"SF1010\TestData\NoDiagnostics\ClassWithPublicExceptionFromCustomException.cs",
             };
 
+            yield return new object[]
+            {
+                @"SF1010\TestData\NoDiagnostics\NonExceptionClass.cs",
+            };
+
         }
 
-        ////Diagnostic and CodeFix both triggered and checked for
-        //[TestMethod]
-        //[DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        //public async Task CodeThatRequireFix(string inputFile, params DiagnosticResultWrapper[] expectedResult)
-        //{
-        //    var expectedDiagnostics = new List<DiagnosticResult>();
-        //    foreach (var expected in expectedResult)
-        //    {
-        //        var rule = VerifyCS.Diagnostic(ConstructorInvokingVirtualMethodAnalyzer.DiagnosticId);
-        //        expectedDiagnostics.Add(rule.WithLocation(expected.Line, expected.Column).WithArguments(expected.Value.Trim()));
-        //    }
+        //Diagnostic and CodeFix both triggered and checked for
+        [TestMethod]
+        [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
+        public async Task CodeThatRequireFix(string inputFile, DiagnosticResultWrapper expectedResult)
+        {
+            var rule = VerifyCS.Diagnostic(CustomExceptionsPublicAnalyzer.DiagnosticId);
+            var expectedDiagnostic = rule.WithLocation(expectedResult.Line, expectedResult.Column).WithArguments(expectedResult.Value.Trim());
 
-        //    await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expectedDiagnostics.ToArray());
-        //}
-        //private static IEnumerable<object[]> GetInvalidData()
-        //{
-        //    yield return new object[]
-        //    {
-        //        @"SF1009\TestData\Diagnostics\ClassWithConstructorCallingVirtualMethods.cs",
-        //        new[]
-        //        {
-        //            new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "Foo" }
-        //        }
-        //    };
+            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expectedDiagnostic);
+        }
+        private static IEnumerable<object[]> GetInvalidData()
+        {
+            yield return new object[]
+            {
+                @"SF1010\TestData\Diagnostics\ClassWithPrivateException.cs",
+                new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "FooException" }
+            };
 
-        //    yield return new object[]
-        //    {
-        //        @"SF1009\TestData\Diagnostics\ClassWithConstructorWithTwoMethodCalls.cs",
-        //        new[]
-        //        {
-        //            new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "Foo" },
-        //            new DiagnosticResultWrapper{ Line = 10, Column= 13, Value = "Bar" }
-        //        }
-        //    };
-
-        //}
+        }
     }
 }
