@@ -130,4 +130,7 @@
   <data name="CF_1008_Title_RenameMethod" xml:space="preserve">
     <value>Rename Method with suffix 'Async'</value>
   </data>
+  <data name="CF_1010_Title_MakeExceptionPublic" xml:space="preserve">
+    <value>Make Exception Public</value>
+  </data>
 </root>

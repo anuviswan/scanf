@@ -95,5 +95,14 @@ namespace Scanf {
                 return ResourceManager.GetString("CF_1008_Title_RenameMethod", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make Exception Public.
+        /// </summary>
+        internal static string CF_1010_Title_MakeExceptionPublic {
+            get {
+                return ResourceManager.GetString("CF_1010_Title_MakeExceptionPublic", resourceCulture);
+            }
+        }
     }
 }
