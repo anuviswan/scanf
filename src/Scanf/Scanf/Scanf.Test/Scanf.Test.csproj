@@ -38,14 +38,14 @@
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorButNoVirtualMethods.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
-    <Compile Remove="SF1010\TestData\Diagnostics\ClassWithPrivateException.cs" />
+    <Compile Remove="SF1010\TestData\Diagnostics\ClassWithInternalException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicExceptionFromCustomException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\NonExceptionClass.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="SF1010\TestData\Diagnostics\ClassWithPrivateException.cs">
+    <None Include="SF1010\TestData\Diagnostics\ClassWithInternalException.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1010\TestData\NoDiagnostics\ClassWithPublicExceptionFromCustomException.cs">

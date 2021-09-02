@@ -56,7 +56,7 @@ namespace Scanf.Test
             yield return new object[]
             {
                 @"SF1010\TestData\Diagnostics\ClassWithPrivateException.cs",
-                new DiagnosticResultWrapper{ Line = 9, Column= 13, Value = "FooException" }
+                new DiagnosticResultWrapper{ Line = 5, Column= 5, Value = "FooException" }
             };
 
         }

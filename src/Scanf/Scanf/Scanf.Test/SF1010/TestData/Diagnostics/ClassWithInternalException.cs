@@ -2,7 +2,7 @@
 
 namespace Scanf.Test.SF1010.TestData.Diagnostics
 {
-    private class FooException:Exception
+    internal class FooException:Exception
     {
     }
 }
