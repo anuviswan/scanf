@@ -44,24 +44,27 @@ namespace Scanf.Test
         //Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         [DynamicData(nameof(GetInvalidData), DynamicDataSourceType.Method)]
-        public async Task CodeThatRequireFix(string inputFile, DiagnosticResultWrapper expectedResult)
+        public async Task CodeThatRequireFix(string inputFile, DiagnosticResultWrapper expectedResult, string expectedCodeFixFile)
         {
+            var inputSource = File.ReadAllText(inputFile);
+            var expectedCodeFixSource = File.ReadAllText(expectedCodeFixFile);
             var rule = VerifyCS.Diagnostic(CustomExceptionsPublicAnalyzer.DiagnosticId);
-            var expectedDiagnostic = rule.WithLocation(expectedResult.Line, expectedResult.Column).WithArguments(expectedResult.Value.Trim());
-
-            await VerifyCS.VerifyAnalyzerAsync(File.ReadAllText(inputFile), expectedDiagnostic);
+            var expected = rule.WithLocation(expectedResult.Line, expectedResult.Column).WithArguments(expectedResult.Value);
+            await VerifyCS.VerifyCodeFixAsync(inputSource, expected, expectedCodeFixSource);
         }
         private static IEnumerable<object[]> GetInvalidData()
         {
             yield return new object[]
             {
                 @"SF1010\TestData\Diagnostics\ClassWithInternalException.cs",
-                new DiagnosticResultWrapper{ Line = 5, Column= 5, Value = "FooException" }
+                new DiagnosticResultWrapper{ Line = 5, Column= 5, Value = "FooException" },
+                @"SF1010\TestData\Diagnostics\ClassWithInternalException_Fix_PublicAccessor.cs",
             };
             yield return new object[]
 {
                 @"SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal.cs",
-                new DiagnosticResultWrapper{ Line = 9, Column= 5, Value = "ChildException" }
+                new DiagnosticResultWrapper{ Line = 9, Column= 5, Value = "ChildException" },
+                @"SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal_Fix_PublicAccessor.cs",
 };
         }
     }

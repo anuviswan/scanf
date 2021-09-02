@@ -39,14 +39,25 @@
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithConstructorInvokingVirtualMethodFromAnotherClass.cs" />
     <Compile Remove="SF1009\TestData\NoDiagnostics\ClassWithNoExplicitConstructor.cs" />
     <Compile Remove="SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal.cs" />
+    <Compile Remove="SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal_Fix_PublicAccessor.cs" />
     <Compile Remove="SF1010\TestData\Diagnostics\ClassWithInternalException.cs" />
+    <Compile Remove="SF1010\TestData\Diagnostics\ClassWithInternalException_Fix_PublicAccessor.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicExceptionFromCustomException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\NonExceptionClass.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="SF1010\TestData\Diagnostics\ClassWithInternalException_Fix_PublicAccessor.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal_Fix_PublicAccessor.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SF1010\TestData\Diagnostics\ClassWithInternalException.cs">
