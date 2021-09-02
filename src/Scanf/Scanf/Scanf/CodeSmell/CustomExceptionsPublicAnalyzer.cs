@@ -1,19 +1,17 @@
-﻿using System.Collections.Immutable;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Scanf.Helpers;
 using Scanf.Utils.ExtensionMethods;
-using Microsoft.CodeAnalysis.CSharp;
-using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Scanf.CodeSmell
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CustomExceptionsPublicAnalyzer :DiagnosticAnalyzer
     {
-        public const string DiagnosticId = DiagnosticCodes.AsyncVoidRule;
+        public const string DiagnosticId = DiagnosticCodes.CustomExceptionsShouldBePublic;
 
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.SFA_1010_AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.SFA_1010_AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
@@ -39,7 +37,7 @@ namespace Scanf.CodeSmell
 
             if (InheritsFrom<System.Exception>(symbol))
             {
-                var accessModifier = GetAccessModifier(classDeclaration);
+                var accessModifier = classDeclaration.GetAccessModifier();
                 if(accessModifier != SyntaxKind.PublicKeyword)
                 {
                     var index = classDeclaration.Modifiers.IndexOf(accessModifier);
@@ -49,19 +47,6 @@ namespace Scanf.CodeSmell
             }
         }
 
-        private SyntaxKind GetAccessModifier(ClassDeclarationSyntax classDeclaration)
-        {
-            var modifiers = new List<SyntaxKind> { SyntaxKind.PublicKeyword, SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword };
-            foreach(var modifer in classDeclaration.Modifiers)
-            {
-                if (modifiers.Contains(modifer.Kind()))
-                {
-                    return modifer.Kind();
-                }
-            }
-            return SyntaxKind.PrivateKeyword;
-              
-        }
         private bool InheritsFrom<T>(INamedTypeSymbol symbol)
         {
             while (true)

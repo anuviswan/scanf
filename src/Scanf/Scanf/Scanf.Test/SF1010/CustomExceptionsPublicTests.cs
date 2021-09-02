@@ -1,5 +1,4 @@
-﻿using Microsoft.CodeAnalysis.Testing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scanf.CodeSmell;
 using Scanf.Test.Utils;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using VerifyCS = Scanf.Test.CSharpCodeFixVerifier<
 Scanf.CodeSmell.CustomExceptionsPublicAnalyzer,
-Scanf.CodeSmell.EmptyMethodCodeFixProvider>;
+Scanf.CodeSmell.CustomExceptionsPublicCodeFixProvider>;
 
 namespace Scanf.Test
 {

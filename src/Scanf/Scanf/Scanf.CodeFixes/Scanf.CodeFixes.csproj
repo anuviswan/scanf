@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Scanf.Utils\Scanf.Utils.csproj" />
     <ProjectReference Include="..\Scanf\Scanf.csproj" />
   </ItemGroup>
 

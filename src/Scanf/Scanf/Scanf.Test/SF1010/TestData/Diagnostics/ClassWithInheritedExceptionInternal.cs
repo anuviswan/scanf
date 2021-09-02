@@ -6,7 +6,7 @@ namespace Scanf.Test.SF1010.TestData.Diagnostics
     {
     }
 
-    internal class ChildException : BaseException
+    internal class ChildException:BaseException
     {
 
     }
