@@ -12,3 +12,5 @@
   href: 1008.md
 - name: Constructor should not invoke any virtual methods
   href: 1009.md
+- name: Custom Exceptions should be always public
+  href: 1010.md
