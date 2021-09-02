@@ -55,10 +55,14 @@ namespace Scanf.Test
         {
             yield return new object[]
             {
-                @"SF1010\TestData\Diagnostics\ClassWithPrivateException.cs",
+                @"SF1010\TestData\Diagnostics\ClassWithInternalException.cs",
                 new DiagnosticResultWrapper{ Line = 5, Column= 5, Value = "FooException" }
             };
-
+            yield return new object[]
+{
+                @"SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal.cs",
+                new DiagnosticResultWrapper{ Line = 9, Column= 5, Value = "ChildException" }
+};
         }
     }
 }
