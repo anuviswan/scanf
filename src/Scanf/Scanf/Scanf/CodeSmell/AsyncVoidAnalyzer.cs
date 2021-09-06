@@ -37,7 +37,6 @@ namespace Scanf.CodeSmell
             var isEventHandler = methodDeclaration.IsEventHandler(context);
             var returnType = methodDeclaration.ReturnType;
 
-
             if(returnType is PredefinedTypeSyntax && !isEventHandler)
             {
                 var isReturnTypeVoid = ((PredefinedTypeSyntax)returnType).Keyword.Kind() == SyntaxKind.VoidKeyword;

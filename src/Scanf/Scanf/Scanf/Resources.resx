@@ -192,4 +192,13 @@
   <data name="SFA_1010_AnalyzerTitle" xml:space="preserve">
     <value>Custom Exceptions should be public</value>
   </data>
+  <data name="SFA_1011_AnalyzerDescription" xml:space="preserve">
+    <value>Enum with FlagAttribute should have values as power of two</value>
+  </data>
+  <data name="SFA_1011_AnalyzerMessageFormat" xml:space="preserve">
+    <value>Enum with FlagAttribute should have values as power of two</value>
+  </data>
+  <data name="SFA_1011_AnalyzerTitle" xml:space="preserve">
+    <value>Enum with FlagAttribute should have values as power of two</value>
+  </data>
 </root>

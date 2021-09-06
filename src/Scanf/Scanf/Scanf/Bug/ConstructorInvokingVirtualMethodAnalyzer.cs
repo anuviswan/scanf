@@ -42,12 +42,9 @@ namespace Scanf.Bug
 
                 if (isFromSameClass && isVirtual)
                 {
-                    
                     context.ReportDiagnostic(Diagnostic.Create(Rule, methodInvocation.GetLocation(), invokedMethod.Name));
                 }
             }
-            //if (methodInvocations is null) return;
-
             
         }
     }

@@ -10,5 +10,6 @@
         public const string AsyncMethodNamingConventionRule = "SF1008";
         public const string ConstructorInvokingVirtualMethodsRule = "SF1009";
         public const string CustomExceptionsShouldBePublic = "SF1010";
+        public const string FlaggedEnumShouldHaveValuesPowerOfTwo = "SF1011";
     }
 }
