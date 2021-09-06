@@ -51,11 +51,22 @@
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\ClassWithPublicExceptionFromCustomException.cs" />
     <Compile Remove="SF1010\TestData\NoDiagnostics\NonExceptionClass.cs" />
+    <Compile Remove="SF1011\TestData\Diagnostics\EnumWithFlagAttribute.cs" />
+    <Compile Remove="SF1011\TestData\Diagnostics\EnumWithFlagAttributeExplicitValues.cs" />
     <Compile Remove="SF1011\TestData\NoDiagnostics\EnumWithFlagAttribute.cs" />
     <Compile Remove="SF1011\TestData\NoDiagnostics\EnumWithoutFlagAttribute.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="SF1011\TestData\Diagnostics\EnumWithFlagAttributeExplicitValues.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SF1011\TestData\Diagnostics\EnumWithFlagAttribute.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SF1011\TestData\NoDiagnostics\EnumWithoutFlagAttribute.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

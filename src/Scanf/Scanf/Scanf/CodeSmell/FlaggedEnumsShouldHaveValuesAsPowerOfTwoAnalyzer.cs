@@ -61,7 +61,7 @@ namespace Scanf.CodeSmell
                 }
                 if (!IsCollectionValuePowerOfTwo(valueList))
                 {
-                    context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), enumDeclaration.Identifier.Value));
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, enumDeclaration.GetLocation(), enumDeclaration.Identifier.Value));
                 }
             }
         }
