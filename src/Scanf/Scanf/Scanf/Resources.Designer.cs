@@ -275,5 +275,32 @@ namespace Scanf {
                 return ResourceManager.GetString("SFA_1010_AnalyzerTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enum with FlagAttribute should have values as power of two.
+        /// </summary>
+        internal static string SFA_1011_AnalyzerDescription {
+            get {
+                return ResourceManager.GetString("SFA_1011_AnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enum with FlagAttribute should have values as power of two.
+        /// </summary>
+        internal static string SFA_1011_AnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("SFA_1011_AnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enum with FlagAttribute should have values as power of two.
+        /// </summary>
+        internal static string SFA_1011_AnalyzerTitle {
+            get {
+                return ResourceManager.GetString("SFA_1011_AnalyzerTitle", resourceCulture);
+            }
+        }
     }
 }

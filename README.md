@@ -12,13 +12,13 @@ If a violation is found by the analyzer, it would be reported in Error List Wind
 
 Current list of rules implemented are listed at https://anuviswan.github.io/scanf/ . Summary of the same is given below.
 
-| Code    | Description                                  |            CodeFix | Analyzer Category |
-| ------- | -------------------------------------------- | -----------------: | ----------------- |
-| SF 1002 | Avoid Empty Methods                          | :heavy_check_mark: | Code Smell        |
-| SF 1003 | Pending TODO Item                            |                :x: | Code Smell        |
-| SF 1004 | Pure methods should return value             |                :x: | Code Smell        |
-| SF 1005 | Async Methods should not return void         | :heavy_check_mark: | Code Smell        |
-| SF 1006 | Use Any() instead of Count when possible     | :heavy_check_mark: | Code Smell        |
-| SF 1008 | Rename method with Async Suffix              | :heavy_check_mark: | Naming Convention |
-| SF 1009 | Constructor should not invoke virtual method |                :x: | Code Smell        |
-| SF 1010 | Custom Exceptions should be always public    | :heavy_check_mark: | Code Smell        |
+| Code    | Description                                                        |            CodeFix | Analyzer Category |
+| ------- | ------------------------------------------------------------------ | -----------------: | ----------------- |
+| SF 1002 | Avoid Empty Methods                                                | :heavy_check_mark: | Code Smell        |
+| SF 1003 | Pending TODO Item                                                  |                :x: | Code Smell        |
+| SF 1004 | Pure methods should return value                                   |                :x: | Code Smell        |
+| SF 1005 | Async Methods should not return void                               | :heavy_check_mark: | Code Smell        |
+| SF 1008 | Rename method with Async Suffix                                    | :heavy_check_mark: | Naming Convention |
+| SF 1009 | Constructor should not invoke virtual method                       |                :x: | Bug               |
+| SF 1010 | Custom Exceptions should be always public                          | :heavy_check_mark: | Code Smell        |
+| SF 1011 | Enums with Flag Attribute should have its values as the power of 2 |                :x: | Bug               |

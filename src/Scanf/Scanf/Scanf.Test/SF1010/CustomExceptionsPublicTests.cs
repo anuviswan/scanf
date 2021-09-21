@@ -60,11 +60,11 @@ namespace Scanf.Test
                 @"SF1010\TestData\Diagnostics\ClassWithInternalException_Fix_PublicAccessor.cs",
             };
             yield return new object[]
-{
+            {
                 @"SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal.cs",
                 new DiagnosticResultWrapper{ Line = 9, Column= 5, Value = "ChildException" },
                 @"SF1010\TestData\Diagnostics\ClassWithInheritedExceptionInternal_Fix_PublicAccessor.cs",
-};
+            };
         }
     }
 }
