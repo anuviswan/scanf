@@ -16,3 +16,5 @@
   href: 1009.md
 - name: Custom Exceptions should be always public
   href: 1010.md
+- name: Enums with Flag Attribute should have its values as the power of 2
+  href: 1011.md
