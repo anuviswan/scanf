@@ -11,7 +11,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
-namespace Scanf.CodeSmell
+namespace Scanf.Bug
 {
 
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -22,7 +22,7 @@ namespace Scanf.CodeSmell
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.SFA_1011_AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.SFA_1011_AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.SFA_1011_AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private static string Category = DiagnosticsCategory.CodeSmell;
+        private static string Category = DiagnosticsCategory.Bug;
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
 

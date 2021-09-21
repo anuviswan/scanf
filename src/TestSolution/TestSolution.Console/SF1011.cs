@@ -5,7 +5,7 @@ using System.Text;
 namespace TestSolution.Console
 {
     [Flags]
-    public enum EnumWithFlagAttribute
+    public enum EnumWithFlag
     {
         None,
         First,

@@ -15,7 +15,7 @@ namespace Scanf.Bug
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.SFA_1009_AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.SFA_1009_AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.SFA_1009_AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        internal const string Category = DiagnosticsCategory.CodeSmell;
+        internal const string Category = DiagnosticsCategory.Bug;
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
 
